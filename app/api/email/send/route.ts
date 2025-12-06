@@ -32,7 +32,7 @@ type EmailType =
 interface EmailRequest {
   type: EmailType;
   to: string | string[];
-  data: Record<string, unknown>;
+  data: unknown;
 }
 
 export async function POST(request: NextRequest) {
