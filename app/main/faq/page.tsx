@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -131,10 +130,8 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
-      <div className="pt-24">
-        <section className="py-20 bg-gradient-to-br from-green-50 to-white">
+    <>
+      <section className="pt-24 pb-20 bg-gradient-to-br from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -196,7 +193,7 @@ export default function FAQPage() {
                   Get in touch with our team for more information about our products and
                   services.
                 </p>
-                <Link href="/contact" className="inline-block">
+                <Link href="/main/contact" className="inline-block">
                   <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors">
                     Contact Us
                   </button>
@@ -205,10 +202,6 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
-      </div>
-      <Footer />
-    </main>
+    </>
   );
 }
-
-import Link from 'next/link';

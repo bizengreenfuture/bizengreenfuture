@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import About from '@/components/sections/About';
 import { Target, Eye, Heart, Leaf } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -35,8 +33,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <>
       <div className="pt-24">
         <About />
       </div>
@@ -72,8 +69,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

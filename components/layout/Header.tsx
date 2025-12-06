@@ -31,9 +31,9 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <Link href="/main" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <Image
-              src="/WhatsApp Image 2025-11-29 at 13.45.00_5441cb2b.jpg"
+              src="/logo.png"
               alt="Bizen Green Future"
               width={50}
               height={50}
@@ -51,17 +51,17 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              href="/"
+              href="/main"
               className={`font-medium transition-colors ${
-                isActive('/') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               Home
             </Link>
             <Link
-              href="/about"
+              href="/main/about"
               className={`font-medium transition-colors ${
-                isActive('/about') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main/about') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               About
@@ -74,13 +74,13 @@ export default function Header() {
               </button>
               <div className="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <Link
-                  href="/products/supertech"
+                  href="/main/products/supertech"
                   className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-t-lg font-medium transition-colors first:rounded-t-lg"
                 >
                   Supertech Combustion
                 </Link>
                 <Link
-                  href="/products/fertilizers"
+                  href="/main/products/fertilizers"
                   className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium transition-colors"
                 >
                   Fertilizers & Feed
@@ -89,34 +89,34 @@ export default function Header() {
             </div>
 
             <Link
-              href="/gallery"
+              href="/main/gallery"
               className={`font-medium transition-colors ${
-                isActive('/gallery') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main/gallery') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               Gallery
             </Link>
 
             <Link
-              href="/impact"
+              href="/main/impact"
               className={`font-medium transition-colors ${
-                isActive('/impact') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main/impact') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               Impact
             </Link>
             <Link
-              href="/faq"
+              href="/main/faq"
               className={`font-medium transition-colors ${
-                isActive('/faq') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main/faq') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               FAQ
             </Link>
             <Link
-              href="/contact"
+              href="/main/contact"
               className={`font-medium transition-colors ${
-                isActive('/contact') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+                isActive('/main/contact') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               Contact
@@ -150,10 +150,10 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link href="/" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               Home
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main/about" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               About
             </Link>
 
@@ -167,26 +167,26 @@ export default function Header() {
               </button>
               {isProductsOpen && (
                 <div className="pl-4 space-y-2">
-                  <Link href="/products/supertech" className="block text-gray-600 hover:text-green-600 font-medium transition-colors">
+                  <Link href="/main/products/supertech" className="block text-gray-600 hover:text-green-600 font-medium transition-colors">
                     Supertech Combustion
                   </Link>
-                  <Link href="/products/fertilizers" className="block text-gray-600 hover:text-green-600 font-medium transition-colors">
+                  <Link href="/main/products/fertilizers" className="block text-gray-600 hover:text-green-600 font-medium transition-colors">
                     Fertilizers & Feed
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link href="/gallery" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main/gallery" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               Gallery
             </Link>
-            <Link href="/impact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main/impact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               Impact
             </Link>
-            <Link href="/faq" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main/faq" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               FAQ
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link href="/main/contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               Contact
             </Link>
             <Link href="/admin" className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2">

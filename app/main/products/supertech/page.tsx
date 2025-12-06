@@ -1,10 +1,7 @@
 'use client';
 
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Zap, CheckCircle2, TrendingDown, Award, Shield, Droplet } from 'lucide-react';
+import { Zap, CheckCircle2, TrendingDown, Award, Shield } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -30,10 +27,8 @@ export default function SupertechPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
-      <div className="pt-24">
-        <section className="py-20 bg-gradient-to-br from-green-50 to-white">
+    <>
+      <section className="pt-24 pb-20 bg-gradient-to-br from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -55,7 +50,7 @@ export default function SupertechPage() {
                 <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg">
                   Request Demo
                 </Button>
-                <Link href="/contact">
+                <Link href="/main/contact">
                   <Button
                     size="lg"
                     variant="outline"
@@ -219,8 +214,6 @@ export default function SupertechPage() {
             </div>
           </div>
         </section>
-      </div>
-      <Footer />
-    </main>
+    </>
   );
 }

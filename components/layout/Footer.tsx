@@ -2,6 +2,7 @@
 
 import { Leaf, Mail, Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/WhatsApp Image 2025-11-29 at 13.45.00_5441cb2b.jpg"
+                src="/logo.png"
                 alt="Bizen Green Future"
                 width={40}
                 height={40}
@@ -32,24 +33,24 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#about" className="hover:text-green-400 transition-colors">
+                <Link href="/main/about" className="hover:text-green-400 transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#solutions" className="hover:text-green-400 transition-colors">
+                <Link href="/main/products/supertech" className="hover:text-green-400 transition-colors">
                   Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#impact" className="hover:text-green-400 transition-colors">
+                <Link href="/main/impact" className="hover:text-green-400 transition-colors">
                   Impact
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-green-400 transition-colors">
+                <Link href="/main/contact" className="hover:text-green-400 transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -59,15 +60,21 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-start space-x-2">
                 <Leaf className="h-4 w-4 mt-1 text-green-400 flex-shrink-0" />
-                <span>Supertech Combustion Technology</span>
+                <Link href="/main/products/supertech" className="hover:text-green-400 transition-colors">
+                  Supertech Combustion Technology
+                </Link>
               </li>
               <li className="flex items-start space-x-2">
                 <Leaf className="h-4 w-4 mt-1 text-green-400 flex-shrink-0" />
-                <span>Organic Fertilizers</span>
+                <Link href="/main/products/fertilizers" className="hover:text-green-400 transition-colors">
+                  Organic Fertilizers
+                </Link>
               </li>
               <li className="flex items-start space-x-2">
                 <Leaf className="h-4 w-4 mt-1 text-green-400 flex-shrink-0" />
-                <span>Calcifeed Animal Feed</span>
+                <Link href="/main/products/fertilizers" className="hover:text-green-400 transition-colors">
+                  Calcifeed Animal Feed
+                </Link>
               </li>
             </ul>
           </div>

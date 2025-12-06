@@ -1,10 +1,7 @@
 'use client';
 
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { Sprout, CheckCircle2, Leaf, Fish, TrendingUp, Award } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -59,10 +56,8 @@ export default function FertilizersPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
-      <div className="pt-24">
-        <section className="py-20 bg-gradient-to-br from-green-50 to-white">
+    <>
+      <section className="pt-24 pb-20 bg-gradient-to-br from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -84,7 +79,7 @@ export default function FertilizersPage() {
                 <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg">
                   Order Now
                 </Button>
-                <Link href="/contact">
+                <Link href="/main/contact">
                   <Button
                     size="lg"
                     variant="outline"
@@ -220,7 +215,7 @@ export default function FertilizersPage() {
                 Join farmers across Uganda who are experiencing higher yields, healthier animals,
                 and stronger profitability through sustainable agriculture.
               </p>
-              <Link href="/contact">
+              <Link href="/main/contact">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold">
                   Get Started Today
                 </Button>
@@ -228,8 +223,6 @@ export default function FertilizersPage() {
             </div>
           </div>
         </section>
-      </div>
-      <Footer />
-    </main>
+    </>
   );
 }
