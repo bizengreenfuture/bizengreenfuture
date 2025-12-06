@@ -7,7 +7,6 @@ import { useUser } from '@clerk/nextjs';
 import { formatDistanceToNow } from 'date-fns';
 import {
   Shield,
-  Users,
   Crown,
   Edit2,
   UserCheck,
@@ -41,6 +40,22 @@ import {
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 
+// Get the app URL for email links
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+// Helper to send emails
+async function sendEmail(type: string, to: string | string[], data: Record<string, unknown>) {
+  try {
+    await fetch('/api/email/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type, to, data }),
+    });
+  } catch (error) {
+    console.error('Failed to send email:', error);
+  }
+}
+
 export default function TeamPage() {
   const { user } = useUser();
 
@@ -55,6 +70,7 @@ export default function TeamPage() {
   const updateRole = useMutation(api.users.updateRole);
   const rejectUser = useMutation(api.users.rejectUser);
   const toggleActive = useMutation(api.users.toggleActive);
+  const createNotification = useMutation(api.notifications.createForUser);
 
   const isAdmin = currentUser?.role === 'admin';
 
@@ -75,9 +91,32 @@ export default function TeamPage() {
     );
   }
 
-  const handleApproveUser = async (userId: Id<'users'>, role: 'admin' | 'editor') => {
+  const handleApproveUser = async (
+    userId: Id<'users'>,
+    userEmail: string,
+    userName: string,
+    userClerkId: string,
+    role: 'admin' | 'editor'
+  ) => {
     try {
       await approveUser({ userId, role });
+      
+      // Create in-app notification for the user
+      await createNotification({
+        type: 'user_approved',
+        title: 'Account Approved!',
+        message: `Welcome! You've been approved as ${role}. You can now access the dashboard.`,
+        link: '/admin',
+        recipientClerkId: userClerkId,
+      });
+
+      // Send email to the approved user
+      sendEmail('user_approved', userEmail, {
+        userName,
+        role,
+        adminDashboardUrl: `${APP_URL}/admin`,
+      });
+
       toast.success(`User approved as ${role}`);
     } catch (error) {
       toast.error('Failed to approve user');
@@ -93,8 +132,15 @@ export default function TeamPage() {
     }
   };
 
-  const handleRejectUser = async (userId: Id<'users'>) => {
+  const handleRejectUser = async (
+    userId: Id<'users'>,
+    userEmail: string,
+    userName: string
+  ) => {
     try {
+      // Send rejection email before deleting the user
+      await sendEmail('user_rejected', userEmail, { userName });
+      
       await rejectUser({ userId });
       toast.success('User rejected and removed');
     } catch (error) {
@@ -199,7 +245,7 @@ export default function TeamPage() {
               {pending.map((u) => (
                 <div
                   key={u._id}
-                  className="flex items-center justify-between p-4 rounded-lg border-2 border-yellow-200 bg-white"
+                  className="flex flex-col md:flex-row md:items-center justify-between p-4 rounded-lg border-2 border-yellow-200 bg-white gap-4"
                 >
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
@@ -216,10 +262,10 @@ export default function TeamPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <Button
                       size="sm"
-                      onClick={() => handleApproveUser(u._id, 'editor')}
+                      onClick={() => handleApproveUser(u._id, u.email, u.name, u.clerkId, 'editor')}
                       className="bg-blue-600 hover:bg-blue-700"
                     >
                       <CheckCircle className="h-4 w-4 mr-1" />
@@ -227,7 +273,7 @@ export default function TeamPage() {
                     </Button>
                     <Button
                       size="sm"
-                      onClick={() => handleApproveUser(u._id, 'admin')}
+                      onClick={() => handleApproveUser(u._id, u.email, u.name, u.clerkId, 'admin')}
                       className="bg-green-600 hover:bg-green-700"
                     >
                       <Crown className="h-4 w-4 mr-1" />
@@ -243,13 +289,13 @@ export default function TeamPage() {
                         <AlertDialogHeader>
                           <AlertDialogTitle>Reject User</AlertDialogTitle>
                           <AlertDialogDescription>
-                            Are you sure you want to reject {u.name}? Their account will be removed.
+                            Are you sure you want to reject {u.name}? Their account will be removed and they will be notified via email.
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                           <AlertDialogCancel>Cancel</AlertDialogCancel>
                           <AlertDialogAction
-                            onClick={() => handleRejectUser(u._id)}
+                            onClick={() => handleRejectUser(u._id, u.email, u.name)}
                             className="bg-red-600 hover:bg-red-700"
                           >
                             Reject
@@ -281,7 +327,7 @@ export default function TeamPage() {
               {admins.map((u) => (
                 <div
                   key={u._id}
-                  className={`flex items-center justify-between p-4 rounded-lg border-2 ${
+                  className={`flex flex-col md:flex-row md:items-center justify-between p-4 rounded-lg border-2 gap-4 ${
                     u.isActive ? 'border-gray-100 bg-white' : 'border-gray-200 bg-gray-50 opacity-60'
                   }`}
                 >
@@ -362,7 +408,7 @@ export default function TeamPage() {
               {editors.map((u) => (
                 <div
                   key={u._id}
-                  className={`flex items-center justify-between p-4 rounded-lg border-2 ${
+                  className={`flex flex-col md:flex-row md:items-center justify-between p-4 rounded-lg border-2 gap-4 ${
                     u.isActive ? 'border-gray-100 bg-white' : 'border-gray-200 bg-gray-50 opacity-60'
                   }`}
                 >
@@ -431,6 +477,7 @@ export default function TeamPage() {
             <li>• <strong>First user</strong> who signs up becomes Admin automatically (bootstrap)</li>
             <li>• <strong>All other users</strong> start as "Pending" and need admin approval</li>
             <li>• <strong>Admins</strong> can approve pending users and assign them roles</li>
+            <li>• <strong>Approved users</strong> receive an email notification with their role</li>
             <li>• <strong>Inactive users</strong> cannot access the admin dashboard</li>
           </ul>
         </CardContent>

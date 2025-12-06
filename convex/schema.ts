@@ -127,4 +127,27 @@ export default defineSchema({
   })
     .index("by_status", ["status"])
     .index("by_interest", ["interest"]),
+
+  // Notifications Table (In-App Notifications)
+  notifications: defineTable({
+    type: v.union(
+      v.literal("user_pending"),      // New user awaiting approval
+      v.literal("user_approved"),     // User was approved
+      v.literal("contact_new"),       // New contact form submission
+      v.literal("lead_new"),          // New lead captured
+      v.literal("lead_assigned"),     // Lead assigned to user
+      v.literal("content_published")  // Content was published
+    ),
+    title: v.string(),
+    message: v.string(),
+    link: v.optional(v.string()),     // URL to navigate to
+    // Recipient: either a specific clerkId or a role group
+    recipientType: v.union(v.literal("user"), v.literal("role")),
+    recipientId: v.string(),          // clerkId or "admin" / "editor"
+    isRead: v.boolean(),
+    createdAt: v.number(),
+  })
+    .index("by_recipient", ["recipientType", "recipientId"])
+    .index("by_recipient_unread", ["recipientType", "recipientId", "isRead"])
+    .index("by_createdAt", ["createdAt"]),
 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ClerkProvider, useAuth, useUser, SignIn, SignedIn, SignedOut } from '@clerk/nextjs';
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ConvexReactClient } from 'convex/react';
@@ -17,16 +17,24 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
+// Get the app URL for email links
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
 function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const { user, isLoaded } = useUser();
+  const hasNotifiedNewUser = useRef(false);
   
   const upsertUser = useMutation(api.users.upsertUser);
+  const createNotificationForRole = useMutation(api.notifications.createForRole);
   const currentUser = useQuery(
     api.users.getCurrentUser,
     user?.id ? { clerkId: user.id } : 'skip'
   );
+  
+  // Get admin emails for notification
+  const admins = useQuery(api.users.getByRole, { role: 'admin' });
 
   // Sync user with Convex when they sign in
   useEffect(() => {
@@ -39,6 +47,48 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
       });
     }
   }, [isLoaded, user, upsertUser]);
+
+  // Send notification when a new pending user signs up
+  useEffect(() => {
+    if (
+      currentUser &&
+      currentUser.role === 'pending' &&
+      !hasNotifiedNewUser.current &&
+      admins &&
+      admins.length > 0
+    ) {
+      hasNotifiedNewUser.current = true;
+
+      // Create in-app notification for admins
+      createNotificationForRole({
+        type: 'user_pending',
+        title: 'New User Awaiting Approval',
+        message: `${currentUser.name} (${currentUser.email}) has signed up and needs approval.`,
+        link: '/admin/team',
+        role: 'admin',
+      });
+
+      // Send email to admins
+      const adminEmails = admins.map((a) => a.email);
+      fetch('/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'new_user_pending',
+          to: adminEmails,
+          data: {
+            userName: currentUser.name,
+            userEmail: currentUser.email,
+            signupTime: new Date(currentUser.createdAt).toLocaleString('en-US', {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+            }),
+            adminDashboardUrl: `${APP_URL}/admin/team`,
+          },
+        }),
+      }).catch(console.error);
+    }
+  }, [currentUser, admins, createNotificationForRole]);
 
   // Show loading state while checking user
   if (!currentUser) {
@@ -111,7 +161,7 @@ function PendingApprovalScreen({ userName }: { userName: string }) {
           </p>
           <div className="bg-white rounded-lg p-4 mb-6 border border-yellow-200">
             <p className="text-sm text-gray-600">
-              An admin will review your request and assign you a role. You'll be able to access the dashboard once approved.
+              An admin will review your request and assign you a role. You'll receive an email once approved.
             </p>
           </div>
           <Button

@@ -6,3 +6,4 @@ export { default as DashboardStats } from './DashboardStats';
 export { default as RecentActivity } from './RecentActivity';
 export { default as ProductForm } from './ProductForm';
 export { default as GalleryForm } from './GalleryForm';
+export { default as NotificationBell } from './NotificationBell';

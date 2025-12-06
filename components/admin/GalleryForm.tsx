@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { Id } from '@/convex/_generated/dataModel';
@@ -38,19 +38,27 @@ interface GalleryFormProps {
   };
 }
 
+const getInitialFormData = (item?: GalleryFormProps['item']) => ({
+  title: item?.title || '',
+  category: item?.category || 'supertech',
+  description: item?.description || '',
+  image: item?.image || '',
+});
+
 export default function GalleryForm({ isOpen, onClose, item }: GalleryFormProps) {
   const { user } = useUser();
   const createGallery = useMutation(api.gallery.create);
   const updateGallery = useMutation(api.gallery.update);
 
-  const [formData, setFormData] = useState({
-    title: item?.title || '',
-    category: item?.category || 'supertech',
-    description: item?.description || '',
-    image: item?.image || '',
-  });
-
+  const [formData, setFormData] = useState(() => getInitialFormData(item));
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Reset form data when item changes or dialog opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData(getInitialFormData(item));
+    }
+  }, [isOpen, item]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -107,6 +115,7 @@ export default function GalleryForm({ isOpen, onClose, item }: GalleryFormProps)
             <ImageUploader
               value={formData.image}
               onChange={(url) => setFormData({ ...formData, image: url })}
+              endpoint="galleryUploader"
             />
           </div>
 

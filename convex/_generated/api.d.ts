@@ -11,6 +11,7 @@
 import type * as contacts from "../contacts.js";
 import type * as gallery from "../gallery.js";
 import type * as leads from "../leads.js";
+import type * as notifications from "../notifications.js";
 import type * as partners from "../partners.js";
 import type * as products from "../products.js";
 import type * as users from "../users.js";
@@ -25,6 +26,7 @@ declare const fullApi: ApiFromModules<{
   contacts: typeof contacts;
   gallery: typeof gallery;
   leads: typeof leads;
+  notifications: typeof notifications;
   partners: typeof partners;
   products: typeof products;
   users: typeof users;

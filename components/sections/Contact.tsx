@@ -10,6 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 
+// Get the app URL for email links
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -21,18 +24,38 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const createContact = useMutation(api.contacts.create);
+  const createNotification = useMutation(api.notifications.createForRole);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      // 1. Save contact to database
       await createContact({
         name: formData.name,
         email: formData.email,
         phone: formData.phone || undefined,
         message: formData.message,
       });
+
+      // 2. Create in-app notification for admins
+      await createNotification({
+        type: 'contact_new',
+        title: 'New Contact Submission',
+        message: `${formData.name} sent a message: "${formData.message.substring(0, 50)}${formData.message.length > 50 ? '...' : ''}"`,
+        link: '/admin/contacts',
+        role: 'admin',
+      });
+
+      // 3. Send email notifications (non-blocking)
+      sendEmailNotifications({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      });
+
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
       toast.success('Message sent successfully!');
@@ -41,6 +64,53 @@ export default function Contact() {
       console.error(error);
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Send email notifications in the background
+  const sendEmailNotifications = async (data: {
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+  }) => {
+    try {
+      // Send notification to admins
+      await fetch('/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'new_contact',
+          to: [process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'bizengreenfuture256@gmail.com'],
+          data: {
+            contactName: data.name,
+            contactEmail: data.email,
+            contactPhone: data.phone || undefined,
+            message: data.message,
+            submittedAt: new Date().toLocaleString('en-US', {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+            }),
+            adminDashboardUrl: `${APP_URL}/admin/contacts`,
+          },
+        }),
+      });
+
+      // Send auto-reply to the contact
+      await fetch('/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'contact_response',
+          to: data.email,
+          data: {
+            contactName: data.name,
+          },
+        }),
+      });
+    } catch (error) {
+      // Don't show error to user - emails are non-critical
+      console.error('Failed to send email notifications:', error);
     }
   };
 

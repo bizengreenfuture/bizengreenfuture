@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { Id } from '@/convex/_generated/dataModel';
 import { useUser } from '@clerk/nextjs';
-import { X, Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -43,23 +43,31 @@ interface ProductFormProps {
   };
 }
 
+const getInitialFormData = (product?: ProductFormProps['product']) => ({
+  name: product?.name || '',
+  category: product?.category || 'supertech',
+  description: product?.description || '',
+  shortDescription: product?.shortDescription || '',
+  price: product?.price || '',
+  image: product?.image || '',
+  benefits: product?.benefits?.length ? product.benefits : [''],
+  specifications: product?.specifications?.length ? product.specifications : [{ label: '', value: '' }],
+});
+
 export default function ProductForm({ isOpen, onClose, product }: ProductFormProps) {
   const { user } = useUser();
   const createProduct = useMutation(api.products.create);
   const updateProduct = useMutation(api.products.update);
 
-  const [formData, setFormData] = useState({
-    name: product?.name || '',
-    category: product?.category || 'supertech',
-    description: product?.description || '',
-    shortDescription: product?.shortDescription || '',
-    price: product?.price || '',
-    image: product?.image || '',
-    benefits: product?.benefits || [''],
-    specifications: product?.specifications || [{ label: '', value: '' }],
-  });
-
+  const [formData, setFormData] = useState(() => getInitialFormData(product));
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Reset form data when product changes or dialog opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData(getInitialFormData(product));
+    }
+  }, [isOpen, product]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

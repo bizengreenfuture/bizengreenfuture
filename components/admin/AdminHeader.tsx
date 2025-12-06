@@ -1,7 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Menu, Bell, ArrowLeft } from 'lucide-react';
+import { useQuery } from 'convex/react';
+import { useUser } from '@clerk/nextjs';
+import { api } from '@/convex/_generated/api';
+import { Menu, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
@@ -13,6 +16,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import NotificationBell from './NotificationBell';
 
 interface AdminHeaderProps {
   onMenuClick: () => void;
@@ -32,14 +36,23 @@ const pageTitles: Record<string, string> = {
 
 export default function AdminHeader({ onMenuClick, isSidebarCollapsed }: AdminHeaderProps) {
   const pathname = usePathname();
+  const { user } = useUser();
+  
+  const currentUser = useQuery(
+    api.users.getCurrentUser,
+    user?.id ? { clerkId: user.id } : 'skip'
+  );
   
   const currentPage = pageTitles[pathname] || 'Admin';
   const pathSegments = pathname.split('/').filter(Boolean);
+  const userRole = (currentUser?.role === 'admin' || currentUser?.role === 'editor') 
+    ? currentUser.role 
+    : 'editor';
 
   return (
     <header
-      className={`fixed top-0 right-0 z-40 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 transition-all duration-300 ${
-        isSidebarCollapsed ? 'left-[70px]' : 'left-[250px]'
+      className={`fixed top-0 right-0 z-40 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 transition-all duration-300 left-0 md:left-[250px] ${
+        isSidebarCollapsed ? 'md:left-[70px]' : 'md:left-[250px]'
       }`}
     >
       <div className="flex items-center space-x-4">
@@ -80,7 +93,7 @@ export default function AdminHeader({ onMenuClick, isSidebarCollapsed }: AdminHe
         <h1 className="md:hidden font-semibold text-gray-900">{currentPage}</h1>
       </div>
 
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2 md:space-x-3">
         {/* Back to site */}
         <Link href="/">
           <Button variant="outline" size="sm" className="hidden sm:flex">
@@ -90,10 +103,7 @@ export default function AdminHeader({ onMenuClick, isSidebarCollapsed }: AdminHe
         </Link>
 
         {/* Notifications */}
-        <Button variant="ghost" size="icon" className="relative">
-          <Bell className="h-5 w-5 text-gray-500" />
-          <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-        </Button>
+        <NotificationBell userRole={userRole} />
 
         {/* User Menu */}
         <UserButton
