@@ -1,0 +1,188 @@
+'use client';
+
+import {
+  TrendingUp,
+  Users,
+  Leaf,
+  Award,
+  Target,
+  Globe,
+  Heart,
+  Briefcase,
+} from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function Impact() {
+  const impacts = [
+    {
+      icon: TrendingUp,
+      title: 'Economic Prosperity',
+      description:
+        'Industries spend less on fuel and maintenance while gaining greater efficiency. Farmers experience improved harvests and higher household incomes.',
+      color: 'from-green-500 to-emerald-600',
+    },
+    {
+      icon: Leaf,
+      title: 'Environmental Health',
+      description:
+        'Cleaning the air children breathe, restoring soils that feed our nation, and reducing waste that burdens ecosystems and cities.',
+      color: 'from-emerald-500 to-teal-600',
+    },
+    {
+      icon: Users,
+      title: 'Community Empowerment',
+      description:
+        'Creating meaningful green jobs for young people and empowering women to be leaders in innovation and sustainability.',
+      color: 'from-teal-500 to-cyan-600',
+    },
+    {
+      icon: Heart,
+      title: 'Health & Dignity',
+      description:
+        'Benefits extend into the health, dignity, and resilience of communities across Uganda and beyond.',
+      color: 'from-green-600 to-emerald-700',
+    },
+  ];
+
+  const reasons = [
+    {
+      icon: Globe,
+      title: 'Global Innovation, Local Expertise',
+      description:
+        'World-class technology rooted in the realities of Ugandan communities, farms, and industries.',
+    },
+    {
+      icon: Award,
+      title: 'Proven Results',
+      description:
+        'Backed by data, science, and real-world performance. Every product is tested, validated, and designed to make a measurable difference.',
+    },
+    {
+      icon: Target,
+      title: 'Partnership & Support',
+      description:
+        'Hands-on support, ongoing training, and continued commitment to success long after installation or delivery.',
+    },
+    {
+      icon: Briefcase,
+      title: 'Driving Change',
+      description:
+        'Not simply selling products, but enabling businesses to compete, farmers to prosper, and Uganda to lead.',
+    },
+  ];
+
+  return (
+    <section id="impact" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Impact & Benefits
+          </h2>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Impact is not something we talk about. It is something we create every
+            single day. Our technologies are transforming lives, businesses, and
+            communities.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {impacts.map((impact, index) => (
+            <Card
+              key={index}
+              className="border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300 overflow-hidden"
+            >
+              <CardContent className="p-8">
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${impact.color} rounded-2xl flex items-center justify-center mb-6`}
+                >
+                  <impact.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  {impact.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {impact.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-br from-green-50 via-white to-green-50 rounded-3xl p-8 md:p-12 mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            The Power of Impact
+          </h3>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Every technology we champion, every partnership we nurture, and every
+            solution we deliver transforms challenges into opportunities.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-10 w-10 text-green-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                The Planet Wins
+              </h4>
+              <p className="text-gray-600">
+                Cleaner air, restored soils, reduced waste
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-10 w-10 text-green-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                People Win
+              </h4>
+              <p className="text-gray-600">
+                Better health, dignity, and resilience
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-10 w-10 text-green-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                The Future Wins
+              </h4>
+              <p className="text-gray-600">
+                Growth, justice, environmental renewal
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            Why Choose Bizen
+          </h3>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Choosing Bizen Green Future Ltd means choosing a partner who believes
+            sustainability must work for people first.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reasons.map((reason, index) => (
+              <div
+                key={index}
+                className="flex items-start space-x-4 bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <reason.icon className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    {reason.title}
+                  </h4>
+                  <p className="text-gray-600">{reason.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
