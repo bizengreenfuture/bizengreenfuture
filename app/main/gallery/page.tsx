@@ -10,65 +10,14 @@ export default function GalleryPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
 
-  // Boilerplate gallery items
-  const galleryItems = [
-    {
-      id: 1,
-      title: 'Supertech Installation',
-      category: 'supertech',
-      description: 'Professional installation of Supertech device',
-      image: 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 2,
-      title: 'Organic Fertilizer Production',
-      category: 'fertilizers',
-      description: 'Black Soldier Fly larvae processing facility',
-      image: 'https://images.pexels.com/photos/4481471/pexels-photo-4481471.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 3,
-      title: 'Farm Application',
-      category: 'fertilizers',
-      description: 'Farmers applying Bizen fertilizers',
-      image: 'https://images.pexels.com/photos/1365521/pexels-photo-1365521.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 4,
-      title: 'Fleet Management',
-      category: 'supertech',
-      description: 'Commercial fleet using Supertech',
-      image: 'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 5,
-      title: 'Animal Feed Distribution',
-      category: 'fertilizers',
-      description: 'Calcifeed animal feed delivery',
-      image: 'https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 6,
-      title: 'Environmental Testing',
-      category: 'supertech',
-      description: 'Laboratory testing of emissions reduction',
-      image: 'https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 7,
-      title: 'Community Workshop',
-      category: 'events',
-      description: 'Training workshop for local farmers',
-      image: 'https://images.pexels.com/photos/3807502/pexels-photo-3807502.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      id: 8,
-      title: 'Impact Results',
-      category: 'impact',
-      description: 'Data visualization of sustainability impact',
-      image: 'https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-  ];
+  // Gallery items - add your real images here
+  const galleryItems: {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+  }[] = [];
 
   const categories = [
     { id: 'all', label: 'All' },
