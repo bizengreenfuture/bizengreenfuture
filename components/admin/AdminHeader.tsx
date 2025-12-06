@@ -1,0 +1,110 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+import { Menu, Bell, ArrowLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+
+interface AdminHeaderProps {
+  onMenuClick: () => void;
+  isSidebarCollapsed: boolean;
+}
+
+const pageTitles: Record<string, string> = {
+  '/admin': 'Dashboard',
+  '/admin/products': 'Products',
+  '/admin/gallery': 'Gallery',
+  '/admin/contacts': 'Contacts',
+  '/admin/leads': 'Leads',
+  '/admin/partners': 'Partners',
+  '/admin/team': 'Team Management',
+  '/admin/settings': 'Settings',
+};
+
+export default function AdminHeader({ onMenuClick, isSidebarCollapsed }: AdminHeaderProps) {
+  const pathname = usePathname();
+  
+  const currentPage = pageTitles[pathname] || 'Admin';
+  const pathSegments = pathname.split('/').filter(Boolean);
+
+  return (
+    <header
+      className={`fixed top-0 right-0 z-40 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 transition-all duration-300 ${
+        isSidebarCollapsed ? 'left-[70px]' : 'left-[250px]'
+      }`}
+    >
+      <div className="flex items-center space-x-4">
+        {/* Mobile menu button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onMenuClick}
+          className="md:hidden"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+
+        {/* Breadcrumbs */}
+        <Breadcrumb className="hidden md:flex">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/admin" className="text-gray-500 hover:text-gray-700">
+                  Admin
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            {pathSegments.length > 1 && (
+              <>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="font-medium text-gray-900">
+                    {currentPage}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </>
+            )}
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        {/* Mobile title */}
+        <h1 className="md:hidden font-semibold text-gray-900">{currentPage}</h1>
+      </div>
+
+      <div className="flex items-center space-x-3">
+        {/* Back to site */}
+        <Link href="/">
+          <Button variant="outline" size="sm" className="hidden sm:flex">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Site
+          </Button>
+        </Link>
+
+        {/* Notifications */}
+        <Button variant="ghost" size="icon" className="relative">
+          <Bell className="h-5 w-5 text-gray-500" />
+          <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+        </Button>
+
+        {/* User Menu */}
+        <UserButton
+          afterSignOutUrl="/"
+          appearance={{
+            elements: {
+              avatarBox: 'h-9 w-9',
+            },
+          }}
+        />
+      </div>
+    </header>
+  );
+}
