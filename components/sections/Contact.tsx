@@ -63,7 +63,10 @@ export default function Contact() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Call Us
               </h3>
-              <p className="text-gray-600">+256 XXX XXXXXX</p>
+              <div className="text-gray-600 space-y-1">
+                <a href="tel:+256752460012" className="block hover:text-green-600 transition-colors">+256 752 460 012</a>
+                <a href="tel:+256783844158" className="block hover:text-green-600 transition-colors">+256 783 844 158</a>
+              </div>
             </CardContent>
           </Card>
 
@@ -135,7 +138,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+256 XXX XXXXXX"
+                    placeholder="+256 7XX XXX XXX"
                     className="w-full"
                   />
                 </div>

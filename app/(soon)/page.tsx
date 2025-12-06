@@ -202,9 +202,13 @@ export default function ComingSoonPage() {
 
         {/* Contact info */}
         <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-gray-400 text-sm animate-fade-in-up animation-delay-600">
-          <a href="tel:+256700000000" className="flex items-center gap-2 hover:text-green-400 transition-colors">
+          <a href="tel:+256752460012" className="flex items-center gap-2 hover:text-green-400 transition-colors">
             <Phone className="h-4 w-4" />
-            <span>+256 XXX XXXXXX</span>
+            <span>+256 752 460 012</span>
+          </a>
+          <a href="tel:+256783844158" className="flex items-center gap-2 hover:text-green-400 transition-colors">
+            <Phone className="h-4 w-4" />
+            <span>+256 783 844 158</span>
           </a>
           <a href="mailto:info@bizengreenfuture.com" className="flex items-center gap-2 hover:text-green-400 transition-colors">
             <Mail className="h-4 w-4" />
