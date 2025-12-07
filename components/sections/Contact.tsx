@@ -172,7 +172,7 @@ export default function Contact() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Email Us
               </h3>
-              <p className="text-gray-600">info@bizengreen.co.ug</p>
+              <a href="mailto:bizengreenfuture256@gmail.com" className="text-gray-600 hover:text-green-600 transition-colors">bizengreenfuture256@gmail.com</a>
             </CardContent>
           </Card>
         </div>

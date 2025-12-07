@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-green-400 flex-shrink-0" />
-                <span>info@bizengreenfuture.com</span>
+                <a href="mailto:bizengreenfuture256@gmail.com" className="hover:text-green-400 transition-colors">bizengreenfuture256@gmail.com</a>
               </li>
             </ul>
           </div>

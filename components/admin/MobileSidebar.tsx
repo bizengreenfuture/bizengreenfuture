@@ -17,6 +17,7 @@ export default function MobileSidebar({ isOpen, onClose, userRole = 'editor' }: 
           isCollapsed={false}
           onToggle={onClose}
           userRole={userRole}
+          onNavigate={onClose}
         />
       </SheetContent>
     </Sheet>

@@ -210,9 +210,9 @@ export default function ComingSoonPage() {
             <Phone className="h-4 w-4" />
             <span>+256 783 844 158</span>
           </a>
-          <a href="mailto:info@bizengreenfuture.com" className="flex items-center gap-2 hover:text-green-400 transition-colors">
+          <a href="mailto:bizengreenfuture256@gmail.com" className="flex items-center gap-2 hover:text-green-400 transition-colors">
             <Mail className="h-4 w-4" />
-            <span>info@bizengreenfuture.com</span>
+            <span>bizengreenfuture256@gmail.com</span>
           </a>
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" />

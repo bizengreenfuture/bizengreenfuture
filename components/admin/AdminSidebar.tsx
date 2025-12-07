@@ -26,6 +26,7 @@ interface AdminSidebarProps {
   isCollapsed: boolean;
   onToggle: () => void;
   userRole?: 'admin' | 'editor';
+  onNavigate?: () => void; // Called when a nav link is clicked (for mobile close)
 }
 
 const menuItems = [
@@ -73,11 +74,17 @@ const menuItems = [
   },
 ];
 
-export default function AdminSidebar({ isCollapsed, onToggle, userRole = 'editor' }: AdminSidebarProps) {
+export default function AdminSidebar({ isCollapsed, onToggle, userRole = 'editor', onNavigate }: AdminSidebarProps) {
   const pathname = usePathname();
   const { signOut } = useClerk();
 
   const filteredItems = menuItems.filter((item) => item.roles.includes(userRole));
+
+  const handleNavClick = () => {
+    if (onNavigate) {
+      onNavigate();
+    }
+  };
 
   return (
     <aside
@@ -160,6 +167,7 @@ export default function AdminSidebar({ isCollapsed, onToggle, userRole = 'editor
             <Link
               key={item.href}
               href={item.href}
+              onClick={handleNavClick}
               className={cn(
                 'flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',
                 isActive
