@@ -78,7 +78,7 @@ function baseTemplate(content: string): string {
                 © ${new Date().getFullYear()} Bizen Green Future Ltd. All rights reserved.
               </p>
               <p style="margin: 0; color: ${colors.gray}; font-size: 12px;">
-                Kampala, Uganda | bizengreenfuture256@gmail.com
+                Kampala, Uganda Rubaga Road Opposite Red Cross | info@bizengreenfuture.com
               </p>
             </td>
           </tr>
@@ -209,7 +209,7 @@ export function userRejectedTemplate(data: UserRejectedData): string {
     `, colors.redBg, colors.red)}
     
     <p style="margin: 24px 0 0 0; color: ${colors.gray}; font-size: 14px; line-height: 1.6;">
-      If you believe this was a mistake or have questions, please contact us at bizengreenfuture256@gmail.com.
+      If you believe this was a mistake or have questions, please contact us at info@bizengreenfuture.com.
     </p>
   `;
   

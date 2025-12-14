@@ -9,7 +9,7 @@ export default function MainLayout({
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-emerald-950">
         {children}
       </main>
       <Footer />

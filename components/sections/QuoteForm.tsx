@@ -102,7 +102,7 @@ export default function QuoteForm({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: 'new_lead',
-          to: [process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'bizengreenfuture256@gmail.com'],
+          to: [process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'info@bizengreenfuture.com'],
           data: {
             leadName: formData.name,
             leadEmail: formData.email,

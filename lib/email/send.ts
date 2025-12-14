@@ -19,7 +19,7 @@ import {
 } from './templates';
 
 // Get sender email from environment
-const senderEmail = process.env.EMAIL || 'bizengreenfuture256@gmail.com';
+const senderEmail = process.env.EMAIL || 'info@bizengreenfuture.com';
 const senderName = 'Bizen Green Future';
 
 interface SendEmailOptions {

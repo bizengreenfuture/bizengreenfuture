@@ -131,73 +131,88 @@ export default function FAQPage() {
 
   return (
     <>
-      <section className="pt-24 pb-20 bg-gradient-to-br from-green-50 to-white">
-          <div className="container mx-auto px-4">
+      <section className="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-950 to-emerald-950 relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-700/5 rounded-full blur-3xl" />
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 Frequently Asked Questions
               </h1>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-300">
                 Everything you need to know about our products and solutions
               </p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-gradient-to-b from-gray-950 via-emerald-950 to-gray-900 relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute inset-0 opacity-[0.02]">
+            <div className="absolute top-0 left-0 w-full h-full" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgb(16 185 129) 1px, transparent 0)`,
+              backgroundSize: '40px 40px',
+            }} />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
               {faqCategories.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="mb-16">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                  <h2 className="text-3xl font-bold text-white mb-8">
                     {category.title}
                   </h2>
 
                   <div className="space-y-4">
                     {category.items.map((item) => (
-                      <Card
-                        key={item.id}
-                        className="border-2 border-gray-100 hover:border-green-200 transition-colors overflow-hidden"
-                      >
-                        <button
-                          onClick={() => toggleItem(item.id)}
-                          className="w-full text-left"
-                        >
-                          <CardContent className="p-6 flex items-start justify-between cursor-pointer hover:bg-green-50/30 transition-colors">
-                            <div className="flex-1">
-                              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                {item.question}
-                              </h3>
-                              {openItems[item.id] && (
-                                <p className="text-gray-600 leading-relaxed mt-4">
-                                  {item.answer}
-                                </p>
-                              )}
-                            </div>
-                            <ChevronDown
-                              className={`h-6 w-6 text-green-600 flex-shrink-0 ml-4 transition-transform ${
-                                openItems[item.id] ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </CardContent>
-                        </button>
-                      </Card>
+                      <div key={item.id} className="group relative">
+                        <div className={`absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl blur opacity-0 ${openItems[item.id] ? 'opacity-30' : 'group-hover:opacity-20'} transition-opacity duration-500`} />
+                        <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden shadow-lg">
+                          <button
+                            onClick={() => toggleItem(item.id)}
+                            className="w-full text-left"
+                          >
+                            <CardContent className="p-6 flex items-start justify-between cursor-pointer hover:bg-emerald-600/5 transition-colors">
+                              <div className="flex-1">
+                                <h3 className="text-lg font-semibold text-white mb-2">
+                                  {item.question}
+                                </h3>
+                                {openItems[item.id] && (
+                                  <p className="text-gray-300 leading-relaxed mt-4">
+                                    {item.answer}
+                                  </p>
+                                )}
+                              </div>
+                              <ChevronDown
+                                className={`h-6 w-6 text-emerald-400 flex-shrink-0 ml-4 transition-transform ${
+                                  openItems[item.id] ? 'rotate-180' : ''
+                                }`}
+                              />
+                            </CardContent>
+                          </button>
+                        </Card>
+                      </div>
                     ))}
                   </div>
                 </div>
               ))}
 
-              <div className="mt-16 bg-gradient-to-r from-green-600 to-emerald-700 rounded-3xl p-8 md:p-12 text-white text-center">
-                <h2 className="text-3xl font-bold mb-4">Still Have Questions?</h2>
-                <p className="text-green-50 mb-6 text-lg">
-                  Get in touch with our team for more information about our products and
-                  services.
-                </p>
-                <Link href="/main/contact" className="inline-block">
-                  <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors">
-                    Contact Us
-                  </button>
-                </Link>
+              <div className="mt-16 relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl blur opacity-30" />
+                <div className="relative bg-gradient-to-r from-emerald-600/90 to-emerald-700/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-white text-center border border-emerald-600/50 shadow-xl shadow-emerald-600/20">
+                  <h2 className="text-3xl font-bold mb-4">Still Have Questions?</h2>
+                  <p className="text-emerald-50 mb-6 text-lg">
+                    Get in touch with our team for more information about our products and
+                    services.
+                  </p>
+                  <Link href="/contact" className="inline-block">
+                    <button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+                      Contact Us
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

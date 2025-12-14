@@ -22,7 +22,7 @@ const productCategories = [
   {
     name: 'SuperTech Combustion',
     description: 'Fuel optimization technology for cleaner emissions',
-    href: '/main/products/supertech',
+    href: '/products/supertech',
     icon: Zap,
     color: 'from-blue-500 to-blue-600',
     bgColor: 'bg-blue-50',
@@ -32,7 +32,7 @@ const productCategories = [
   {
     name: 'Organic Fertilizers',
     description: 'Sustainable soil nutrition from BSF processing',
-    href: '/main/products/fertilizers',
+    href: '/products/fertilizers',
     icon: Leaf,
     color: 'from-green-500 to-emerald-600',
     bgColor: 'bg-green-50',
@@ -42,7 +42,7 @@ const productCategories = [
   {
     name: 'Animal Feed',
     description: 'Premium Calcifeed for healthy livestock',
-    href: '/main/products/fertilizers#feed',
+    href: '/products/fertilizers#feed',
     icon: Fish,
     color: 'from-cyan-500 to-blue-600',
     bgColor: 'bg-cyan-50',
@@ -52,12 +52,12 @@ const productCategories = [
 ];
 
 const navLinks = [
-  { name: 'Home', href: '/main' },
-  { name: 'About', href: '/main/about' },
-  { name: 'Gallery', href: '/main/gallery' },
-  { name: 'Impact', href: '/main/impact' },
-  { name: 'FAQ', href: '/main/faq' },
-  { name: 'Contact', href: '/main/contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Impact', href: '/impact' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -84,7 +84,7 @@ export default function Header() {
   }, [pathname]);
 
   const isActive = (href: string) => {
-    if (href === '/main') return pathname === '/main';
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
@@ -115,17 +115,17 @@ export default function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-gray-200/50' 
-          : 'bg-white'
+          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg shadow-emerald-900/20 border-b border-emerald-600/20' 
+          : 'bg-gray-900'
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link 
-            href="/main" 
+            href="/" 
             onClick={closeMobileMenu}
-            className="flex items-center space-x-3 hover:opacity-90 transition-opacity group"
+            className="flex items-center space-x-2 sm:space-x-3 hover:opacity-90 transition-opacity group"
           >
             <div className="relative">
               <Image
@@ -133,16 +133,16 @@ export default function Header() {
                 alt="Bizen Green Future"
                 width={48}
                 height={48}
-                className="object-contain group-hover:scale-105 transition-transform"
+                className="object-contain group-hover:scale-105 transition-transform w-10 h-10 sm:w-12 sm:h-12"
               />
             </div>
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold text-gray-900 tracking-tight">
+            <div className="flex flex-col">
+              <div className="text-lg sm:text-xl font-bold text-white tracking-tight leading-tight">
                 Bizen Green Future
               </div>
-              <div className="text-xs text-green-600 font-medium flex items-center gap-1">
+              <div className="hidden sm:flex items-center gap-1 text-xs text-emerald-400 font-medium">
                 <Sparkles className="h-3 w-3" />
-                Innovation Rooted in Sustainability
+                <span>Innovation Rooted in Sustainability</span>
               </div>
             </div>
           </Link>
@@ -156,8 +156,8 @@ export default function Header() {
                 className={cn(
                   'px-4 py-2 rounded-lg font-medium transition-all duration-200',
                   isActive(link.href)
-                    ? 'text-green-600 bg-green-50'
-                    : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
+                    ? 'text-emerald-400 bg-emerald-600/20'
+                    : 'text-gray-300 hover:text-emerald-400 hover:bg-gray-800'
                 )}
               >
                 {link.name}
@@ -175,8 +175,8 @@ export default function Header() {
                 className={cn(
                   'flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium transition-all duration-200',
                   pathname.includes('/products')
-                    ? 'text-green-600 bg-green-50'
-                    : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
+                    ? 'text-emerald-400 bg-emerald-600/20'
+                    : 'text-gray-300 hover:text-emerald-400 hover:bg-gray-800'
                 )}
               >
                 <span>Products</span>
@@ -197,17 +197,17 @@ export default function Header() {
                     : 'opacity-0 invisible -translate-y-2'
                 )}
               >
-                <div className="bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 p-6 w-[480px]">
+                <div className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl shadow-emerald-900/20 border border-emerald-600/30 p-6 w-[480px]">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-emerald-600/20">
                     <div>
-                      <h3 className="font-semibold text-gray-900">Our Products</h3>
-                      <p className="text-sm text-gray-500">Sustainable solutions for a greener future</p>
+                      <h3 className="font-semibold text-white">Our Products</h3>
+                      <p className="text-sm text-gray-400">Sustainable solutions for a greener future</p>
                     </div>
                     <Link
-                      href="/main/products/supertech"
+                      href="/products/supertech"
                       onClick={closeDesktopDropdown}
-                      className="text-sm text-green-600 hover:text-green-700 font-medium flex items-center gap-1 group"
+                      className="text-sm text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 group"
                     >
                       View all
                       <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -221,29 +221,24 @@ export default function Header() {
                         key={product.href}
                         href={product.href}
                         onClick={closeDesktopDropdown}
-                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
+                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-700/50 transition-colors group"
                       >
                         <div className={cn(
-                          'w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0',
-                          product.bgColor
+                          'w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-emerald-600/20'
                         )}>
-                          <product.icon className={cn('h-6 w-6', product.iconColor)} />
+                          <product.icon className="h-6 w-6 text-emerald-400" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
+                            <h4 className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
                               {product.name}
                             </h4>
                             <ArrowRight className="h-4 w-4 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                           </div>
-                          <p className="text-sm text-gray-500 mt-0.5 line-clamp-1">
+                          <p className="text-sm text-gray-400 mt-0.5 line-clamp-1">
                             {product.description}
                           </p>
-                          <span className={cn(
-                            'inline-block mt-1.5 text-xs font-medium px-2 py-0.5 rounded-full',
-                            product.bgColor,
-                            product.iconColor
-                          )}>
+                          <span className="inline-block mt-1.5 text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-600/20 text-emerald-400">
                             {product.stats}
                           </span>
                         </div>
@@ -252,11 +247,11 @@ export default function Header() {
                   </div>
 
                   {/* Footer CTA */}
-                  <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="mt-4 pt-4 border-t border-emerald-600/20">
                     <Link
-                      href="/main/contact"
+                      href="/contact"
                       onClick={closeDesktopDropdown}
-                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-medium hover:from-green-700 hover:to-emerald-700 transition-all"
+                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-xl font-medium hover:from-emerald-700 hover:to-emerald-800 transition-all shadow-lg shadow-emerald-600/25"
                     >
                       <span>Request a Quote</span>
                       <ArrowRight className="h-4 w-4" />
@@ -273,8 +268,8 @@ export default function Header() {
                 className={cn(
                   'px-4 py-2 rounded-lg font-medium transition-all duration-200',
                   isActive(link.href)
-                    ? 'text-green-600 bg-green-50'
-                    : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
+                    ? 'text-emerald-400 bg-emerald-600/20'
+                    : 'text-gray-300 hover:text-emerald-400 hover:bg-gray-800'
                 )}
               >
                 {link.name}
@@ -284,7 +279,7 @@ export default function Header() {
             {/* Admin Button */}
             <Link
               href="/admin"
-              className="ml-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all flex items-center gap-2 shadow-lg shadow-green-600/25 hover:shadow-green-600/40"
+              className="ml-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-5 py-2.5 rounded-xl font-medium transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40"
             >
               <User className="h-4 w-4" />
               <span>Admin</span>
@@ -295,7 +290,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden hover:bg-gray-100"
+            className="lg:hidden hover:bg-gray-800 text-gray-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -310,7 +305,7 @@ export default function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'lg:hidden fixed inset-x-0 top-20 bg-white border-t border-gray-100 shadow-xl transition-all duration-300 overflow-hidden',
+          'lg:hidden fixed inset-x-0 top-20 bg-gray-900 border-t border-emerald-600/20 shadow-xl transition-all duration-300 overflow-hidden',
           isMobileMenuOpen ? 'max-h-[calc(100vh-5rem)] opacity-100' : 'max-h-0 opacity-0'
         )}
       >
@@ -323,8 +318,8 @@ export default function Header() {
               className={cn(
                 'block px-4 py-3 rounded-xl font-medium transition-colors',
                 isActive(link.href)
-                  ? 'text-green-600 bg-green-50'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'text-emerald-400 bg-emerald-600/20'
+                  : 'text-gray-300 hover:bg-gray-800'
               )}
             >
               {link.name}
@@ -338,8 +333,8 @@ export default function Header() {
               className={cn(
                 'flex items-center justify-between w-full px-4 py-3 rounded-xl font-medium transition-colors',
                 pathname.includes('/products')
-                  ? 'text-green-600 bg-green-50'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'text-emerald-400 bg-emerald-600/20'
+                  : 'text-gray-300 hover:bg-gray-800'
               )}
             >
               <span>Products</span>
@@ -363,17 +358,14 @@ export default function Header() {
                     key={product.href}
                     href={product.href}
                     onClick={closeMobileMenu}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-800 transition-colors"
                   >
-                    <div className={cn(
-                      'w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0',
-                      product.bgColor
-                    )}>
-                      <product.icon className={cn('h-5 w-5', product.iconColor)} />
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-emerald-600/20">
+                      <product.icon className="h-5 w-5 text-emerald-400" />
                     </div>
                     <div>
-                      <div className="font-medium text-gray-900">{product.name}</div>
-                      <div className="text-xs text-gray-500">{product.stats}</div>
+                      <div className="font-medium text-white">{product.name}</div>
+                      <div className="text-xs text-gray-400">{product.stats}</div>
                     </div>
                   </Link>
                 ))}
@@ -389,8 +381,8 @@ export default function Header() {
               className={cn(
                 'block px-4 py-3 rounded-xl font-medium transition-colors',
                 isActive(link.href)
-                  ? 'text-green-600 bg-green-50'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'text-emerald-400 bg-emerald-600/20'
+                  : 'text-gray-300 hover:bg-gray-800'
               )}
             >
               {link.name}
@@ -398,11 +390,11 @@ export default function Header() {
           ))}
 
           {/* Mobile Admin Button */}
-          <div className="pt-4 border-t border-gray-100 mt-4">
+          <div className="pt-4 border-t border-emerald-600/20 mt-4">
             <Link
               href="/admin"
               onClick={closeMobileMenu}
-              className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-medium"
+              className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-xl font-medium shadow-lg shadow-emerald-600/25"
             >
               <User className="h-4 w-4" />
               <span>Admin Dashboard</span>

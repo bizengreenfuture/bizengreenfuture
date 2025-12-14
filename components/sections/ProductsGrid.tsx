@@ -92,7 +92,7 @@ export default function ProductsGrid({ category, title, showEmpty = true }: Prod
         {products.map((product) => (
           <Link
             key={product._id}
-            href={`/main/products/${product.slug}`}
+            href={`/products/${product.slug}`}
             className="group"
           >
             <Card className="h-full border-2 border-gray-100 hover:border-green-300 hover:shadow-xl transition-all duration-300 overflow-hidden">
