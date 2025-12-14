@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 
 async function WebmailRedirect() {
-  redirect('https://68.66.220.30/webmail');
+  redirect('http://198.251.84.200:2096');
 
   // This will never be reached, but TypeScript requires a return statement
   return null;
