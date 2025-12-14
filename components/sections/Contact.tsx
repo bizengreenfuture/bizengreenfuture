@@ -130,198 +130,191 @@ export default function Contact() {
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-700/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get in Touch
-          </h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Ready to join the green revolution? Contact us to learn more about our
-            solutions and how we can help transform your business or farm.
-          </p>
-        </div>
-
-        {/* Contact Form - Now First */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <div className="relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl blur opacity-20" />
-            <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10">
-              <CardContent className="p-8 md:p-10">
-                {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/40">
-                      <CheckCircle className="h-10 w-10 text-white" />
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-3">Thank You!</h3>
-                    <p className="text-gray-300 mb-8 text-lg">
-                      Your message has been sent successfully. We'll get back to you soon.
-                    </p>
-                    <Button
-                      onClick={() => setIsSubmitted(false)}
-                      variant="outline"
-                      className="border-2 border-emerald-600 text-emerald-400 hover:bg-emerald-600/10 hover:text-emerald-300 px-8 py-6 text-lg"
-                    >
-                      Send Another Message
-                    </Button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-base font-semibold text-white mb-3"
+        {/* Contact Form and Cards - Side by Side on Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {/* Contact Form - Left Side on Desktop (First on Mobile) */}
+          <div className="lg:col-span-2 order-1">
+            <div className="relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl blur opacity-20" />
+              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10">
+                <CardContent className="p-8 md:p-10">
+                  {isSubmitted ? (
+                    <div className="text-center py-12">
+                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/40">
+                        <CheckCircle className="h-10 w-10 text-white" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-white mb-3">Thank You!</h3>
+                      <p className="text-gray-300 mb-8 text-lg">
+                        Your message has been sent successfully. We'll get back to you soon.
+                      </p>
+                      <Button
+                        onClick={() => setIsSubmitted(false)}
+                        variant="outline"
+                        className="border-2 border-emerald-600 text-emerald-400 hover:bg-emerald-600/10 hover:text-emerald-300 px-8 py-6 text-lg"
                       >
-                        Full Name <span className="text-emerald-400">*</span>
-                      </label>
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Enter your full name"
-                        required
-                        className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
-                      />
+                        Send Another Message
+                      </Button>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                       <div>
                         <label
-                          htmlFor="email"
+                          htmlFor="name"
                           className="block text-base font-semibold text-white mb-3"
                         >
-                          Email Address <span className="text-emerald-400">*</span>
+                          Full Name <span className="text-emerald-400">*</span>
                         </label>
                         <Input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
                           onChange={handleChange}
-                          placeholder="your.email@example.com"
+                          placeholder="Enter your full name"
                           required
                           className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
                         />
                       </div>
 
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="block text-base font-semibold text-white mb-3"
+                          >
+                            Email Address <span className="text-emerald-400">*</span>
+                          </label>
+                          <Input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="your.email@example.com"
+                            required
+                            className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="phone"
+                            className="block text-base font-semibold text-white mb-3"
+                          >
+                            Phone Number
+                          </label>
+                          <Input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+256 7XX XXX XXX"
+                            className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                          />
+                        </div>
+                      </div>
+
                       <div>
                         <label
-                          htmlFor="phone"
+                          htmlFor="message"
                           className="block text-base font-semibold text-white mb-3"
                         >
-                          Phone Number
+                          Message <span className="text-emerald-400">*</span>
                         </label>
-                        <Input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
+                        <Textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
                           onChange={handleChange}
-                          placeholder="+256 7XX XXX XXX"
-                          className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                          placeholder="Tell us about your sustainability needs, questions, or how we can help..."
+                          rows={6}
+                          required
+                          className="w-full bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all resize-none"
                         />
                       </div>
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-base font-semibold text-white mb-3"
-                      >
-                        Message <span className="text-emerald-400">*</span>
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your sustainability needs, questions, or how we can help..."
-                        rows={6}
-                        required
-                        className="w-full bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all resize-none"
-                      />
-                    </div>
+                      <div className="pt-4">
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-6 text-lg font-semibold shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <span className="flex items-center justify-center">
+                              <span className="animate-spin mr-2">⏳</span>
+                              Sending...
+                            </span>
+                          ) : (
+                            <span className="flex items-center justify-center">
+                              Send Message
+                              <Send className="ml-2 h-5 w-5" />
+                            </span>
+                          )}
+                        </Button>
+                      </div>
+                    </form>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          </div>
 
-                    <div className="pt-4">
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-6 text-lg font-semibold shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? (
-                          <span className="flex items-center justify-center">
-                            <span className="animate-spin mr-2">⏳</span>
-                            Sending...
-                          </span>
-                        ) : (
-                          <span className="flex items-center justify-center">
-                            Send Message
-                            <Send className="ml-2 h-5 w-5" />
-                          </span>
-                        )}
-                      </Button>
-                    </div>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
+          {/* Contact Cards - Right Side on Desktop (Second on Mobile) */}
+          <div className="lg:col-span-1 space-y-6 order-2">
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                    <MapPin className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Our Location
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">Kampala, Uganda<br />Rubaga Road Opposite Red Cross</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                    <Phone className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Call Us
+                  </h3>
+                  <div className="text-gray-300 space-y-2">
+                    <a href="tel:+256752460012" className="block hover:text-emerald-400 transition-colors">+256 752 460 012</a>
+                    <a href="tel:+256783844158" className="block hover:text-emerald-400 transition-colors">+256 783 844 158</a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                    <Mail className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Email Us
+                  </h3>
+                  <a href="mailto:info@bizengreenfuture.com" className="text-gray-300 hover:text-emerald-400 transition-colors break-all">info@bizengreenfuture.com</a>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
 
-        {/* Contact Cards - Now Second */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-            <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
-              <CardContent className="p-6 md:p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
-                  <MapPin className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  Our Location
-                </h3>
-                <p className="text-gray-300 leading-relaxed">Kampala, Uganda<br />Rubaga Road Opposite Red Cross</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-            <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
-              <CardContent className="p-6 md:p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
-                  <Phone className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  Call Us
-                </h3>
-                <div className="text-gray-300 space-y-2">
-                  <a href="tel:+256752460012" className="block hover:text-emerald-400 transition-colors">+256 752 460 012</a>
-                  <a href="tel:+256783844158" className="block hover:text-emerald-400 transition-colors">+256 783 844 158</a>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-            <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
-              <CardContent className="p-6 md:p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
-                  <Mail className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  Email Us
-                </h3>
-                <a href="mailto:info@bizengreenfuture.com" className="text-gray-300 hover:text-emerald-400 transition-colors break-all">info@bizengreenfuture.com</a>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Google Map Section */}
-        <div className="mb-12">
-          <div className="max-w-6xl mx-auto">
+        {/* Google Map Section - Full Width */}
+        <div className="mb-12 -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Find Us
@@ -330,33 +323,33 @@ export default function Contact() {
                 Visit us at our location in Kampala, Uganda
               </p>
             </div>
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
-              <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10">
-                <iframe
-                  src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=Rubaga%20Road%20Opposite%20Red%20Cross,%20Kampala,%20Uganda+(Bizen%20Green%20Future)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                  title="Bizen Green Future Location - Rubaga Road Opposite Red Cross, Kampala, Uganda"
-                />
-              </div>
+          </div>
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-none lg:rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500 mx-4 sm:mx-6 lg:mx-8" />
+            <div className="relative rounded-none lg:rounded-2xl overflow-hidden border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10 mx-4 sm:mx-6 lg:mx-8">
+              <iframe
+                src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=Rubaga%20Road%20Opposite%20Red%20Cross,%20Kampala,%20Uganda+(Bizen%20Green%20Future)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full"
+                title="Bizen Green Future Location - Rubaga Road Opposite Red Cross, Kampala, Uganda"
+              />
             </div>
-            <div className="mt-6 text-center">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Rubaga+Road+Opposite+Red+Cross,+Kampala,+Uganda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
-              >
-                <MapPin className="h-5 w-5" />
-                <span>Open in Google Maps</span>
-              </a>
-            </div>
+          </div>
+          <div className="mt-6 text-center px-4 sm:px-6 lg:px-8">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Rubaga+Road+Opposite+Red+Cross,+Kampala,+Uganda"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+            >
+              <MapPin className="h-5 w-5" />
+              <span>Open in Google Maps</span>
+            </a>
           </div>
         </div>
 
