@@ -5,7 +5,6 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  User, 
   Zap, 
   Leaf, 
   Fish, 
@@ -275,15 +274,6 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-
-            {/* Admin Button */}
-            <Link
-              href="/admin"
-              className="ml-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-5 py-2.5 rounded-xl font-medium transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40"
-            >
-              <User className="h-4 w-4" />
-              <span>Admin</span>
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -388,18 +378,6 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
-
-          {/* Mobile Admin Button */}
-          <div className="pt-4 border-t border-emerald-600/20 mt-4">
-            <Link
-              href="/admin"
-              onClick={closeMobileMenu}
-              className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-xl font-medium shadow-lg shadow-emerald-600/25"
-            >
-              <User className="h-4 w-4" />
-              <span>Admin Dashboard</span>
-            </Link>
-          </div>
         </nav>
       </div>
     </header>

@@ -1,16 +1,9 @@
 'use client';
 
 import { ArrowRight, Leaf, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 export default function Hero() {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
@@ -86,27 +79,24 @@ export default function Hero() {
                 communities.
               </p>
 
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 md:gap-4 pt-2 md:pt-4 animate-fade-in-up animation-delay-600">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 md:px-8 py-5 md:py-6 text-base md:text-lg shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all w-full sm:w-auto"
-                  onClick={scrollToContact}
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-green-500/50 text-green-300 hover:bg-green-500/10 hover:border-green-400 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg backdrop-blur-sm transition-all w-full sm:w-auto"
+              {/* CTA button */}
+              <div className="flex items-center justify-center lg:justify-start pt-2 md:pt-4 animate-fade-in-up animation-delay-600">
+                <button
                   onClick={() => {
                     const element = document.querySelector('#solutions');
                     if (element) element.scrollIntoView({ behavior: 'smooth' });
                   }}
+                  className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-semibold text-white bg-gradient-to-r from-emerald-600 via-emerald-600 to-green-600 hover:from-emerald-700 hover:via-emerald-700 hover:to-green-700 rounded-xl md:rounded-2xl shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 w-full sm:w-auto overflow-hidden"
                 >
-                  Explore Solutions
-                </Button>
+                  {/* Button content */}
+                  <span className="relative flex items-center gap-2 md:gap-3 z-10">
+                    <span>Explore Our Solutions</span>
+                    <ArrowRight className="h-5 w-5 md:h-6 md:w-6 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                  
+                  {/* Shine effect on hover */}
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
+                </button>
               </div>
             </div>
 
