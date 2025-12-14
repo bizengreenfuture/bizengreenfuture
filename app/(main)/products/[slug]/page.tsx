@@ -43,8 +43,6 @@ const categoryConfig: Record<string, { icon: React.ElementType; color: string; l
     backLink: '/products/fertilizers',
   },
 };
-<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>
-grep
 
 export default function ProductDetailPage() {
   const params = useParams();
