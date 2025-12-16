@@ -4,6 +4,7 @@ import { Sprout, CheckCircle2, Leaf, Fish, TrendingUp, Award } from 'lucide-reac
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProductsGrid from '@/components/sections/ProductsGrid';
 import QuoteForm from '@/components/sections/QuoteForm';
 
@@ -29,24 +30,56 @@ export default function FertilizersPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-950 to-emerald-950 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-700/5 rounded-full blur-3xl" />
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 min-h-[80vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/imagebackgroundbizen.jpg"
+            alt="Bizen Green Future Background"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+        </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-emerald-600/20 border border-emerald-600/30 backdrop-blur-sm text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        {/* Green Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-green-900/85 to-emerald-900/80"></div>
+
+        {/* Additional subtle overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient orbs for depth */}
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-float-delayed" />
+          <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-teal-400/5 rounded-full blur-3xl animate-float-slow" />
+
+          {/* Subtle grid pattern overlay */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+              backgroundSize: '50px 50px',
+            }}
+          />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-emerald-500/30 backdrop-blur-md border border-emerald-400/50 text-emerald-100 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg animate-fade-in-up">
               <Sprout className="h-4 w-4" />
               <span>Regenerative Agriculture Solution</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up animation-delay-200 drop-shadow-lg">
               Fertilizers & Premium{' '}
-              <span className="text-emerald-400">Animal Feed</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-300 to-teal-300">Animal Feed</span>
             </h1>
 
-            <p className="text-2xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-emerald-50 mb-8 leading-relaxed animate-fade-in-up animation-delay-400 drop-shadow-lg">
               From Black Soldier Fly to your farm. Transform organic waste into soil-restoring
               fertilizers and nutrient-rich animal feeds.
             </p>
@@ -54,7 +87,7 @@ export default function FertilizersPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-6 text-lg shadow-lg shadow-emerald-600/25"
+                className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-6 text-lg shadow-lg shadow-emerald-500/25"
                 onClick={() => {
                   const form = document.getElementById('quote-form');
                   form?.scrollIntoView({ behavior: 'smooth' });
@@ -66,7 +99,7 @@ export default function FertilizersPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-emerald-600/50 text-emerald-400 hover:bg-emerald-600/10 hover:border-emerald-400 px-8 py-6 text-lg w-full sm:w-auto backdrop-blur-sm"
+                  className="border-2 border-emerald-500/50 text-emerald-600 hover:bg-emerald-50 hover:border-emerald-600 px-8 py-6 text-lg w-full sm:w-auto backdrop-blur-sm"
                 >
                   Learn More
                 </Button>
@@ -77,8 +110,36 @@ export default function FertilizersPage() {
       </section>
 
       {/* Product Categories Overview */}
-      <section className="py-20 bg-gradient-to-b from-gray-950 via-emerald-950 to-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/imagebackgroundbizen.jpg"
+            alt="Bizen Green Future Background"
+            fill
+            className="object-cover"
+            quality={90}
+          />
+        </div>
+
+        {/* Green Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-green-900/85 to-emerald-900/80"></div>
+
+        {/* Additional subtle overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-green-800/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-800/20 rounded-full blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgb(34 197 94) 0.2px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto relative z-10">
             <h2 className="text-4xl font-bold text-white mb-12 text-center">
               Our Product Lines
@@ -87,16 +148,16 @@ export default function FertilizersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {/* Organic Fertilizers Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-emerald-600/20">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                <Card className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm border-2 border-green-700 hover:border-emerald-500 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-emerald-500/20">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-600/40">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-400/40">
                       <Leaf className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-3xl text-white">Organic Fertilizers</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <p className="text-gray-300 text-lg">
+                    <p className="text-emerald-50 text-lg">
                       Premium organic fertilizers created from Black Soldier Fly processing
                     </p>
                     <div className="space-y-3">
@@ -110,7 +171,7 @@ export default function FertilizersPage() {
                       ].map((benefit, idx) => (
                         <div key={idx} className="flex items-start space-x-3">
                           <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-1" />
-                          <span className="text-gray-300">{benefit}</span>
+                          <span className="text-emerald-50">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -120,16 +181,16 @@ export default function FertilizersPage() {
 
               {/* Animal Feed Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-emerald-600/20">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                <Card className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm border-2 border-green-700 hover:border-emerald-500 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-emerald-500/20">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-600/40">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-400/40">
                       <Fish className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-3xl text-white">Calcifeed Animal Feed</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <p className="text-gray-300 text-lg">
+                    <p className="text-emerald-50 text-lg">
                       Nutrient-rich premium feed for livestock and poultry
                     </p>
                     <div className="space-y-3">
@@ -143,7 +204,7 @@ export default function FertilizersPage() {
                       ].map((benefit, idx) => (
                         <div key={idx} className="flex items-start space-x-3">
                           <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-1" />
-                          <span className="text-gray-300">{benefit}</span>
+                          <span className="text-emerald-50">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -153,10 +214,10 @@ export default function FertilizersPage() {
             </div>
 
             {/* BSF Advantage */}
-            <div className="bg-gradient-to-r from-gray-800/80 via-gray-900/80 to-emerald-900/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-12 border border-emerald-600/20 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-12 border border-green-700 relative overflow-hidden">
               {/* Background orbs */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-700/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-green-500/10 rounded-full blur-3xl" />
 
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold text-white mb-8 text-center">
@@ -179,7 +240,7 @@ export default function FertilizersPage() {
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start space-x-2">
                           <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">{item}</span>
+                          <span className="text-emerald-50">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -200,7 +261,7 @@ export default function FertilizersPage() {
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start space-x-2">
                           <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">{item}</span>
+                          <span className="text-emerald-50">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -217,16 +278,16 @@ export default function FertilizersPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {advantages.map((adv, index) => (
                   <div key={index} className="group relative">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                    <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                    <Card className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm border-2 border-green-700 hover:border-emerald-500 transition-all duration-300 shadow-lg">
                       <CardContent className="p-8">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-600/40">
+                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-400/40">
                           <adv.icon className="h-6 w-6 text-white" />
                         </div>
                         <h4 className="text-lg font-semibold text-white mb-2">
                           {adv.title}
                         </h4>
-                        <p className="text-gray-300">{adv.description}</p>
+                        <p className="text-emerald-50">{adv.description}</p>
                       </CardContent>
                     </Card>
                   </div>
@@ -238,14 +299,42 @@ export default function FertilizersPage() {
       </section>
 
       {/* Dynamic Products - Fertilizers */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 via-emerald-950 to-gray-950 relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/imagebackgroundbizen.jpg"
+            alt="Bizen Green Future Background"
+            fill
+            className="object-cover"
+            quality={90}
+          />
+        </div>
+
+        {/* Green Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-green-900/85 to-emerald-900/80"></div>
+
+        {/* Additional subtle overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-green-800/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-800/20 rounded-full blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgb(34 197 94) 0.2px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto space-y-16 relative z-10">
             <div>
               <h2 className="text-4xl font-bold text-white mb-4 text-center">
                 Our Fertilizer Products
               </h2>
-              <p className="text-xl text-gray-300 text-center mb-12">
+              <p className="text-xl text-emerald-50 text-center mb-12">
                 Premium organic fertilizers for sustainable farming
               </p>
               <ProductsGrid category="fertilizers" showEmpty={false} />
@@ -255,7 +344,7 @@ export default function FertilizersPage() {
               <h2 className="text-4xl font-bold text-white mb-4 text-center">
                 Animal Feed Products
               </h2>
-              <p className="text-xl text-gray-300 text-center mb-12">
+              <p className="text-xl text-emerald-50 text-center mb-12">
                 Nutrient-rich feeds for healthy livestock
               </p>
               <ProductsGrid category="feed" showEmpty={false} />
@@ -265,15 +354,43 @@ export default function FertilizersPage() {
       </section>
 
       {/* Quote Form Section */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-gray-950 via-emerald-950 to-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section id="quote-form" className="py-24 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/imagebackgroundbizen.jpg"
+            alt="Bizen Green Future Background"
+            fill
+            className="object-cover"
+            quality={90}
+          />
+        </div>
+
+        {/* Green Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-green-900/85 to-emerald-900/80"></div>
+
+        {/* Additional subtle overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-green-800/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-800/20 rounded-full blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgb(34 197 94) 0.2px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div>
                 <h2 className="text-4xl font-bold text-white mb-6">
                   Ready to Transform Your Farm?
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-emerald-50 mb-8 leading-relaxed">
                   Join farmers across Uganda who are experiencing higher yields, healthier animals,
                   and stronger profitability through sustainable agriculture.
                 </p>
@@ -286,7 +403,7 @@ export default function FertilizersPage() {
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-                      <span className="text-gray-300">{item}</span>
+                      <span className="text-emerald-50">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -303,10 +420,10 @@ export default function FertilizersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600/90 to-emerald-700/90 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-emerald-500/90 to-emerald-600/90 relative overflow-hidden">
         {/* Background decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -315,7 +432,7 @@ export default function FertilizersPage() {
               Whether you're a small-scale farmer or managing a large agricultural operation,
               we have the products and expertise to help you succeed sustainably.
             </p>
-            <Link href="/main/contact">
+            <Link href="/contact">
               <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold shadow-lg">
                 Contact Our Team
               </Button>

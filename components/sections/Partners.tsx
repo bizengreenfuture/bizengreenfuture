@@ -14,31 +14,48 @@ export default function Partners() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-950 relative overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="absolute top-1/4 -left-20 w-64 h-64 bg-green-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl" />
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/imagebackgroundbizen.jpg"
+          alt="Bizen Green Future Background"
+          fill
+          className="object-cover"
+          quality={90}
+        />
+      </div>
 
-      {/* Grid pattern overlay */}
+      {/* Green Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/70 via-emerald-800/60 to-green-900/70"></div>
+
+      {/* Additional subtle overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+      {/* Decorative orbs */}
+      <div className="absolute top-1/4 -left-20 w-64 h-64 bg-green-400/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-20 w-48 h-48 bg-emerald-400/10 rounded-full blur-3xl" />
+
+      {/* Subtle grid pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
           backgroundSize: '50px 50px',
         }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 bg-green-500/10 border border-green-500/30 text-green-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-emerald-500/20 backdrop-blur-md border border-emerald-400/50 text-emerald-100 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
             <Handshake className="h-4 w-4" />
             <span>Trusted Partnerships</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
             Our Partners
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-emerald-50 max-w-2xl mx-auto drop-shadow-lg">
             We collaborate with leading organizations to bring innovative sustainable solutions to Uganda
           </p>
         </div>
@@ -46,7 +63,7 @@ export default function Partners() {
         {!partners ? (
           <div className="flex justify-center items-center gap-8 flex-wrap">
             {[...Array(4)].map((_, i) => (
-              <Skeleton key={i} className="h-20 w-40 rounded-lg bg-white/10" />
+              <Skeleton key={i} className="h-20 w-40 rounded-lg bg-green-800/50" />
             ))}
           </div>
         ) : (
@@ -61,15 +78,15 @@ export default function Partners() {
                 title={partner.name}
               >
                 {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-400 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
                 {/* Card */}
-                <div className="relative h-20 w-40 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-green-500/30 p-4 flex items-center justify-center transition-all duration-300 hover:bg-white/15">
+                <div className="relative h-20 w-40 bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-md rounded-xl border border-green-700 hover:border-emerald-500 p-4 flex items-center justify-center transition-all duration-300 hover:bg-green-700 shadow-lg">
                   <Image
                     src={partner.logo}
                     alt={partner.name}
                     fill
-                    className="object-contain p-3 brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                    className="object-contain p-3 opacity-80 group-hover:opacity-100 transition-opacity brightness-0 invert"
                   />
                 </div>
               </a>

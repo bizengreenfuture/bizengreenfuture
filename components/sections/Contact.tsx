@@ -124,10 +124,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-950 to-emerald-950 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-b from-white via-emerald-50 to-green-50 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-700/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Contact Form and Cards - Side by Side on Desktop */}
@@ -135,22 +135,22 @@ export default function Contact() {
           {/* Contact Form - Left Side on Desktop (First on Mobile) */}
           <div className="lg:col-span-2 order-1">
             <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl blur opacity-20" />
-              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-3xl blur opacity-20" />
+              <Card className="relative bg-white backdrop-blur-sm border-2 border-emerald-200 shadow-xl shadow-emerald-200/10">
                 <CardContent className="p-8 md:p-10">
                   {isSubmitted ? (
                     <div className="text-center py-12">
-                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/40">
+                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-400/40">
                         <CheckCircle className="h-10 w-10 text-white" />
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-3">Thank You!</h3>
-                      <p className="text-gray-300 mb-8 text-lg">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-3">Thank You!</h3>
+                      <p className="text-gray-700 mb-8 text-lg">
                         Your message has been sent successfully. We'll get back to you soon.
                       </p>
                       <Button
                         onClick={() => setIsSubmitted(false)}
                         variant="outline"
-                        className="border-2 border-emerald-600 text-emerald-400 hover:bg-emerald-600/10 hover:text-emerald-300 px-8 py-6 text-lg"
+                        className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 px-8 py-6 text-lg"
                       >
                         Send Another Message
                       </Button>
@@ -160,9 +160,9 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-base font-semibold text-white mb-3"
+                          className="block text-base font-semibold text-gray-900 mb-3"
                         >
-                          Full Name <span className="text-emerald-400">*</span>
+                          Full Name <span className="text-emerald-600">*</span>
                         </label>
                         <Input
                           type="text"
@@ -172,7 +172,7 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="Enter your full name"
                           required
-                          className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                          className="w-full h-12 bg-white border-2 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                         />
                       </div>
 
@@ -180,9 +180,9 @@ export default function Contact() {
                         <div>
                           <label
                             htmlFor="email"
-                            className="block text-base font-semibold text-white mb-3"
+                            className="block text-base font-semibold text-gray-900 mb-3"
                           >
-                            Email Address <span className="text-emerald-400">*</span>
+                            Email Address <span className="text-emerald-600">*</span>
                           </label>
                           <Input
                             type="email"
@@ -192,14 +192,14 @@ export default function Contact() {
                             onChange={handleChange}
                             placeholder="your.email@example.com"
                             required
-                            className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                            className="w-full h-12 bg-white border-2 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                           />
                         </div>
 
                         <div>
                           <label
                             htmlFor="phone"
-                            className="block text-base font-semibold text-white mb-3"
+                            className="block text-base font-semibold text-gray-900 mb-3"
                           >
                             Phone Number
                           </label>
@@ -210,7 +210,7 @@ export default function Contact() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+256 7XX XXX XXX"
-                            className="w-full h-12 bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all"
+                            className="w-full h-12 bg-white border-2 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                           />
                         </div>
                       </div>
@@ -218,9 +218,9 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="message"
-                          className="block text-base font-semibold text-white mb-3"
+                          className="block text-base font-semibold text-gray-900 mb-3"
                         >
-                          Message <span className="text-emerald-400">*</span>
+                          Message <span className="text-emerald-600">*</span>
                         </label>
                         <Textarea
                           id="message"
@@ -230,7 +230,7 @@ export default function Contact() {
                           placeholder="Tell us about your sustainability needs, questions, or how we can help..."
                           rows={6}
                           required
-                          className="w-full bg-gray-900/50 border-2 border-gray-700 text-white placeholder:text-gray-500 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 transition-all resize-none"
+                          className="w-full bg-white border-2 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all resize-none"
                         />
                       </div>
 
@@ -238,7 +238,7 @@ export default function Contact() {
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-6 text-lg font-semibold shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white py-6 text-lg font-semibold shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? (
                             <span className="flex items-center justify-center">
@@ -263,49 +263,49 @@ export default function Contact() {
           {/* Contact Cards - Right Side on Desktop (Second on Mobile) */}
           <div className="lg:col-span-1 space-y-6 order-2">
             <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+              <Card className="relative bg-white backdrop-blur-sm border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-200/20 h-full">
                 <CardContent className="p-6 md:p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
                     <MapPin className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Our Location
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">Kampala, Uganda<br />Rubaga Road Opposite Red Cross</p>
+                  <p className="text-gray-700 leading-relaxed">Kampala, Uganda<br />Rubaga Road Opposite Red Cross</p>
                 </CardContent>
               </Card>
             </div>
 
             <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+              <Card className="relative bg-white backdrop-blur-sm border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-200/20 h-full">
                 <CardContent className="p-6 md:p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
                     <Phone className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Call Us
                   </h3>
-                  <div className="text-gray-300 space-y-2">
-                    <a href="tel:+256752460012" className="block hover:text-emerald-400 transition-colors">+256 752 460 012</a>
-                    <a href="tel:+256783844158" className="block hover:text-emerald-400 transition-colors">+256 783 844 158</a>
+                  <div className="text-gray-700 space-y-2">
+                    <a href="tel:+256751460012" className="block hover:text-emerald-600 transition-colors">+256 751 460 012</a>
+                    <a href="tel:+256783844158" className="block hover:text-emerald-600 transition-colors">+256 783 844 158</a>
                   </div>
                 </CardContent>
               </Card>
             </div>
 
             <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-              <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-600/20 h-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+              <Card className="relative bg-white backdrop-blur-sm border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-200/20 h-full">
                 <CardContent className="p-6 md:p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/40">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Email Us
                   </h3>
-                  <a href="mailto:info@bizengreenfuture.com" className="text-gray-300 hover:text-emerald-400 transition-colors break-all">info@bizengreenfuture.com</a>
+                  <a href="mailto:info@bizengreenfuture.com" className="text-gray-700 hover:text-emerald-600 transition-colors break-all">info@bizengreenfuture.com</a>
                 </CardContent>
               </Card>
             </div>
@@ -316,17 +316,17 @@ export default function Contact() {
         <div className="mb-12 -mx-4 sm:-mx-6 lg:-mx-8">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Find Us
               </h3>
-              <p className="text-gray-300 text-lg">
+              <p className="text-gray-700 text-lg">
                 Visit us at our location in Kampala, Uganda
               </p>
             </div>
           </div>
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-none lg:rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500 mx-4 sm:mx-6 lg:mx-8" />
-            <div className="relative rounded-none lg:rounded-2xl overflow-hidden border-2 border-emerald-600/30 shadow-xl shadow-emerald-600/10 mx-4 sm:mx-6 lg:mx-8">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-none lg:rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500 mx-4 sm:mx-6 lg:mx-8" />
+            <div className="relative rounded-none lg:rounded-2xl overflow-hidden border-2 border-emerald-200 shadow-xl shadow-emerald-200/10 mx-4 sm:mx-6 lg:mx-8">
               <iframe
                 src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=Rubaga%20Road%20Opposite%20Red%20Cross,%20Kampala,%20Uganda+(Bizen%20Green%20Future)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
@@ -345,7 +345,7 @@ export default function Contact() {
               href="https://www.google.com/maps/search/?api=1&query=Rubaga+Road+Opposite+Red+Cross,+Kampala,+Uganda"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors font-medium"
             >
               <MapPin className="h-5 w-5" />
               <span>Open in Google Maps</span>
@@ -354,7 +354,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-2 bg-emerald-600/20 border border-emerald-600/30 backdrop-blur-sm text-emerald-400 px-6 py-3 rounded-full text-sm font-medium">
+          <div className="inline-flex items-center space-x-2 bg-emerald-100 border border-emerald-300 backdrop-blur-sm text-emerald-700 px-6 py-3 rounded-full text-sm font-medium">
             <span>Better Profit. Better Planet.</span>
           </div>
         </div>
