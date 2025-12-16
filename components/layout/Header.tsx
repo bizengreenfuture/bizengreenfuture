@@ -137,11 +137,11 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <div className="text-lg sm:text-xl font-bold text-white tracking-tight leading-tight">
-                Bizen Green Future
+                Bizen Green Future Ltd
               </div>
               <div className="hidden sm:flex items-center gap-1 text-xs text-emerald-400 font-medium">
                 <Sparkles className="h-3 w-3" />
-                <span>Innovation Rooted in Sustainability</span>
+
               </div>
             </div>
           </Link>
