@@ -102,12 +102,14 @@ export default function Impact() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
               <Card className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm border-2 border-green-700 hover:border-emerald-500 hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden shadow-lg">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-400/40">
-                    <impact.icon className="h-8 w-8 text-white" />
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                      <impact.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">
+                      {impact.title}
+                    </h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    {impact.title}
-                  </h3>
                   <p className="text-emerald-50 leading-relaxed">
                     {impact.description}
                   </p>
@@ -133,34 +135,40 @@ export default function Impact() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
-                  <Globe className="h-10 w-10 text-white" />
+                <div className="flex items-center justify-center space-x-3 mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                    <Globe className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white">
+                    The Planet Wins
+                  </h4>
                 </div>
-                <h4 className="text-2xl font-bold text-white mb-2">
-                  The Planet Wins
-                </h4>
                 <p className="text-emerald-50">
                   Cleaner air, restored soils, reduced waste
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
-                  <Users className="h-10 w-10 text-white" />
+                <div className="flex items-center justify-center space-x-3 mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                    <Users className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white">
+                    People Win
+                  </h4>
                 </div>
-                <h4 className="text-2xl font-bold text-white mb-2">
-                  People Win
-                </h4>
                 <p className="text-emerald-50">
                   Better health, dignity, and resilience
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
-                  <TrendingUp className="h-10 w-10 text-white" />
+                <div className="flex items-center justify-center space-x-3 mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                    <TrendingUp className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white">
+                    The Future Wins
+                  </h4>
                 </div>
-                <h4 className="text-2xl font-bold text-white mb-2">
-                  The Future Wins
-                </h4>
                 <p className="text-emerald-50">
                   Growth, justice, environmental renewal
                 </p>
@@ -182,17 +190,17 @@ export default function Impact() {
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="group relative flex items-start space-x-4 bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-700 hover:border-emerald-500 hover:shadow-emerald-500/20 transition-all duration-300"
+                className="group relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-700 hover:border-emerald-500 hover:shadow-emerald-500/20 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
-                  <reason.icon className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                    <reason.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-white">
                     {reason.title}
                   </h4>
-                  <p className="text-emerald-50">{reason.description}</p>
                 </div>
+                <p className="text-emerald-50">{reason.description}</p>
               </div>
             ))}
           </div>

@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto">
           {/* Full Width Description */}
           <div className="mb-8 md:mb-12 lg:mb-16 text-center animate-fade-in-up animation-delay-200">
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-emerald-50 max-w-5xl mx-auto leading-relaxed drop-shadow-lg">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-emerald-50 max-w-5xl mx-auto leading-relaxed drop-shadow-lg font-bold">
               We are driving a bold transformation where clean energy, regenerative
               agriculture, and circular innovation power our farms, industries, and
               communities.

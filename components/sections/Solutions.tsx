@@ -68,17 +68,18 @@ export default function Solutions() {
             <div className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-700 hover:border-emerald-500 shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-400/40">
-                  <Zap className="h-8 w-8 text-white" />
+                <div className="flex items-center space-x-4 flex-1">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                    <Zap className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">
+                    Supertech Clean Combustion
+                  </h3>
                 </div>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/30 border border-emerald-400/50 text-emerald-100">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/30 border border-emerald-400/50 text-emerald-100 ml-4 flex-shrink-0">
                   ISO 9001:2015 Certified
                 </span>
               </div>
-
-              <h3 className="text-2xl font-bold text-white mb-3">
-                Supertech Clean Combustion
-              </h3>
               <p className="text-emerald-50 leading-relaxed mb-6">
                 Italian-engineered combustion optimization technology that
                 transforms fuel efficiency. The future of sustainable transport and
@@ -150,13 +151,14 @@ export default function Solutions() {
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-700 hover:border-emerald-500 shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
               {/* Header */}
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-400/40">
-                <Sprout className="h-8 w-8 text-white" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                  <Sprout className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Circular Bio Manufacturing
+                </h3>
               </div>
-
-              <h3 className="text-2xl font-bold text-white mb-3">
-                Circular Bio Manufacturing
-              </h3>
               <p className="text-emerald-50 leading-relaxed mb-6">
                 Using Black Soldier Fly larvae, we transform organic waste into
                 products that nourish the land and strengthen livestock.
@@ -261,10 +263,12 @@ export default function Solutions() {
                   key={index}
                   className="bg-gradient-to-br from-green-700 to-emerald-800 backdrop-blur-sm rounded-2xl p-6 border border-green-600 hover:border-emerald-400 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg shadow-emerald-400/40 group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="h-6 w-6 text-white" />
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40 group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-white">{item.title}</h4>
                   </div>
-                  <h4 className="font-semibold mb-2 text-white">{item.title}</h4>
                   <p className="text-sm text-emerald-100">{item.description}</p>
                 </div>
               ))}

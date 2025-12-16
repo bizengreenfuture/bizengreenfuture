@@ -54,7 +54,7 @@ export default function About() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-green-800/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-800/20 rounded-full blur-3xl" />
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.05] border-[20px] border-solid border-transparent"
         style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, rgb(34 197 94) 0.2px, transparent 0)`,
           backgroundSize: '40px 40px',
@@ -78,12 +78,14 @@ export default function About() {
           <div className="group relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-3xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-700 hover:border-emerald-500 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-400/40">
-                <Target className="h-8 w-8 text-white" />
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                  <Target className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Our Mission
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Our Mission
-              </h3>
               <p className="text-emerald-50 leading-relaxed text-lg">
                 To deliver green solutions that are both practical and profitable.
                 We focus on technologies that improve daily lives, strengthen food
@@ -96,12 +98,14 @@ export default function About() {
           <div className="group relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-3xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative bg-gradient-to-br from-green-800 to-emerald-900 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-700 hover:border-emerald-500 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-400/40">
-                <Eye className="h-8 w-8 text-white" />
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40">
+                  <Eye className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Our Vision
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Our Vision
-              </h3>
               <p className="text-emerald-50 leading-relaxed text-lg">
                 A resilient and inclusive society where nothing is wasted and every
                 resource has value. Where farmers succeed, industries reduce
@@ -131,12 +135,14 @@ export default function About() {
                   key={index}
                   className="group bg-gradient-to-br from-green-700 to-emerald-800 backdrop-blur-sm rounded-2xl p-6 border border-green-600 hover:border-emerald-400 transition-all duration-300 hover:bg-green-600"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-400/40 group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="h-6 w-6 text-white" />
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-400/40 group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h4>
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">
-                    {item.title}
-                  </h4>
                   <p className="text-emerald-100 text-sm">{item.description}</p>
                 </div>
               ))}

@@ -302,7 +302,7 @@ export default function Contact() {
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">t
                     Email Us
                   </h3>
                   <a href="mailto:info@bizengreenfuture.com" className="text-gray-700 hover:text-emerald-600 transition-colors break-all">info@bizengreenfuture.com</a>

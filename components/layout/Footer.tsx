@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>
+              <li>1
                 <Link href="/about" className="hover:text-emerald-600 transition-colors">
                   About Us
                 </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-emerald-600 flex-shrink-0" />
                 <div className="flex flex-col">
-                  <a href="tel:+256752460012" className="hover:text-emerald-600 transition-colors">+256 752 460 012</a>
+                  <a href="tel:+256752460012" className="hover:text-emerald-600 transition-colors">+256 751 460 012</a>
                   <a href="tel:+256783844158" className="hover:text-emerald-600 transition-colors">+256 783 844 158</a>
                 </div>
               </li>
