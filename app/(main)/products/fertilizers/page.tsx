@@ -187,7 +187,7 @@ export default function FertilizersPage() {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-400/40">
                       <Fish className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-3xl text-white">Calcifeed Animal Feed</CardTitle>
+                    <CardTitle className="text-3xl text-white">Animal Feed (Calcifeed)</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <p className="text-emerald-50 text-lg">

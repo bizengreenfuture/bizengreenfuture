@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'fuel efficiency',
     'emission reduction',
     'organic fertilizers',
-    'Calcifeed animal feed',
+    'Animal Feed (Calcifeed)',
     'regenerative agriculture',
     'circular economy',
     'green technology Uganda',

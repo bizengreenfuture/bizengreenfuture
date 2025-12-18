@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>1
+              <li>
                 <Link href="/about" className="hover:text-emerald-600 transition-colors">
                   About Us
                 </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
               <li className="flex items-start space-x-2">
                 <Leaf className="h-4 w-4 mt-1 text-emerald-600 flex-shrink-0" />
                 <Link href="/products/fertilizers" className="hover:text-emerald-600 transition-colors">
-                  Calcifeed Animal Feed
+                  Animal Feed (Calcifeed)
                 </Link>
               </li>
             </ul>
@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span>Kampala, Uganda<br />Rubaga Road Opposite Red Cross</span>
+                <span>Supertech Uganda Rubaga Road Kampala</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-emerald-600 flex-shrink-0" />
@@ -93,9 +93,12 @@ export default function Footer() {
                   <a href="tel:+256783844158" className="hover:text-emerald-600 transition-colors">+256 783 844 158</a>
                 </div>
               </li>
-              <li className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                <a href="mailto:info@bizengreenfuture.com" className="hover:text-emerald-600 transition-colors">info@bizengreenfuture.com</a>
+              <li className="flex items-start space-x-3">
+                <Mail className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col space-y-1">
+                  <a href="mailto:info@bizengreenfuture.com" className="hover:text-emerald-600 transition-colors">info@bizengreenfuture.com</a>
+                  <a href="mailto:calcigrubtrading@gmail.com" className="hover:text-emerald-600 transition-colors">calcigrubtrading@gmail.com</a>
+                </div>
               </li>
             </ul>
           </div>

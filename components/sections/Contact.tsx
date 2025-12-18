@@ -272,7 +272,7 @@ export default function Contact() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Our Location
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">Kampala, Uganda<br />Rubaga Road Opposite Red Cross</p>
+                  <p className="text-gray-700 leading-relaxed">Supertech Uganda Rubaga Road Kampala</p>
                 </CardContent>
               </Card>
             </div>
@@ -302,10 +302,13 @@ export default function Contact() {
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">t
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Email Us
                   </h3>
-                  <a href="mailto:info@bizengreenfuture.com" className="text-gray-700 hover:text-emerald-600 transition-colors break-all">info@bizengreenfuture.com</a>
+                  <div className="text-gray-700 space-y-2">
+                    <a href="mailto:info@bizengreenfuture.com" className="block hover:text-emerald-600 transition-colors break-all">info@bizengreenfuture.com</a>
+                    <a href="mailto:calcigrubtrading@gmail.com" className="block hover:text-emerald-600 transition-colors break-all">calcigrubtrading@gmail.com</a>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -328,7 +331,7 @@ export default function Contact() {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-none lg:rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500 mx-4 sm:mx-6 lg:mx-8" />
             <div className="relative rounded-none lg:rounded-2xl overflow-hidden border-2 border-emerald-200 shadow-xl shadow-emerald-200/10 mx-4 sm:mx-6 lg:mx-8">
               <iframe
-                src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=Rubaga%20Road%20Opposite%20Red%20Cross,%20Kampala,%20Uganda+(Bizen%20Green%20Future)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=Supertech%20Uganda%20Rubaga%20Road,%20Kampala,%20Uganda+(Bizen%20Green%20Future)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -336,13 +339,13 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full"
-                title="Bizen Green Future Location - Rubaga Road Opposite Red Cross, Kampala, Uganda"
+                title="Bizen Green Future Location - Supertech Uganda Rubaga Road, Kampala, Uganda"
               />
             </div>
           </div>
           <div className="mt-6 text-center px-4 sm:px-6 lg:px-8">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Rubaga+Road+Opposite+Red+Cross,+Kampala,+Uganda"
+              href="https://www.google.com/maps/search/?api=1&query=Supertech+Uganda+Rubaga+Road,+Kampala,+Uganda"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors font-medium"

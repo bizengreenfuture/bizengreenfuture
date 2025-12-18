@@ -197,7 +197,7 @@ export default function Solutions() {
                       <Fish className="h-5 w-5 text-white" />
                     </div>
                     <h4 className="font-semibold text-white">
-                      Calcifeed Animal Feed
+                      Animal Feed (Calcifeed)
                     </h4>
                   </div>
                   <ul className="space-y-1.5">

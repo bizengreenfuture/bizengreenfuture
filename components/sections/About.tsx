@@ -2,8 +2,11 @@
 
 import { Target, Eye, Heart, TrendingUp, Lightbulb, Users } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function About() {
+  const pathname = usePathname();
+  const showCompanyDescription = pathname === '/about';
   const drivers = [
     {
       icon: Heart,
@@ -71,6 +74,31 @@ export default function About() {
             Our Mission & Vision
           </h2>
         </div>
+
+        {/* Company Description - Only show on About page */}
+        {showCompanyDescription && (
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-gradient-to-br from-green-800/90 to-emerald-900/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 border-2 border-green-700/50 shadow-xl">
+              <div className="prose prose-lg prose-invert max-w-none">
+                <p className="text-emerald-50 leading-relaxed mb-6 text-lg">
+                  Bizen Green Future Ltd (formerly Calcigrub General Trading Company Ltd) is a legally registered company in Uganda, incorporated on 22 February 2024 under Certificate of Incorporation / Commercial Registration No. 80034472887209.
+                </p>
+                <p className="text-emerald-50 leading-relaxed mb-6 text-lg">
+                  We are a company built by people who believe in Africa's potential. Bizen Green Future Ltd was founded by a group of partners who have spent many years working across different industries and countries on the continent. Through this journey, we gained practical experience, learned what works, and understood what businesses need to grow. We came together with one shared goal: to build strong, honest, and future-focused enterprises.
+                </p>
+                <p className="text-emerald-50 leading-relaxed mb-6 text-lg">
+                  Our work goes beyond buying and selling. We support businesses and projects by providing strategic guidance, building partnerships, and helping ideas grow into sustainable ventures. We believe that real success comes from long-term thinking, responsible leadership, and creating value that benefits both people and markets.
+                </p>
+                <p className="text-emerald-50 leading-relaxed mb-6 text-lg">
+                  Our head office is located in Kampala, Uganda, within the Rubaga Division. We also operate a branch office in Juba, South Sudan, and maintain representative and contact offices in Rwanda, allowing us to serve clients and partners across the East African region.
+                </p>
+                <p className="text-emerald-50 leading-relaxed text-lg">
+                  At Bizen Green Future Ltd, we are guided by integrity, collaboration, and a commitment to building a greener and more sustainable future. We aim to be a trusted partner to governments, investors, and businesses seeking meaningful and lasting opportunities across Africa and beyond.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Mission & Vision Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">

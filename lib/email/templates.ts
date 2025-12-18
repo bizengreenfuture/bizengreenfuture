@@ -78,7 +78,7 @@ function baseTemplate(content: string): string {
                 © ${new Date().getFullYear()} Bizen Green Future Ltd. All rights reserved.
               </p>
               <p style="margin: 0; color: ${colors.gray}; font-size: 12px;">
-                Kampala, Uganda Rubaga Road Opposite Red Cross | info@bizengreenfuture.com
+                Supertech Uganda Rubaga Road Kampala | info@bizengreenfuture.com | calcigrubtrading@gmail.com
               </p>
             </td>
           </tr>
