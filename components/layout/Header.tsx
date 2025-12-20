@@ -54,6 +54,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Gallery', href: '/gallery' },
+  { name: 'Certifications', href: '/certifications' },
   { name: 'Impact', href: '/impact' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
