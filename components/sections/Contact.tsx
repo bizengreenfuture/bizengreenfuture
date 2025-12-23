@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -308,6 +308,49 @@ export default function Contact() {
                   <div className="text-gray-700 space-y-2">
                     <a href="mailto:info@bizengreenfuture.com" className="block hover:text-emerald-600 transition-colors break-all">info@bizengreenfuture.com</a>
                     <a href="mailto:calcigrubtrading@gmail.com" className="block hover:text-emerald-600 transition-colors break-all">calcigrubtrading@gmail.com</a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+              <Card className="relative bg-white backdrop-blur-sm border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-200/20 h-full">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-400/40">
+                    <Instagram className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    Follow Us
+                  </h3>
+                  <div className="flex items-center justify-center space-x-4">
+                    <a
+                      href="https://www.instagram.com/greenfuture372/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-emerald-600 transition-colors"
+                      aria-label="Follow us on Instagram"
+                    >
+                      <Instagram className="h-6 w-6" />
+                    </a>
+                    <a
+                      href="https://x.com/BGreenfuture"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-emerald-600 transition-colors"
+                      aria-label="Follow us on Twitter/X"
+                    >
+                      <Twitter className="h-6 w-6" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/bizen-greenfuture-9a917a395?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-emerald-600 transition-colors"
+                      aria-label="Connect with us on LinkedIn"
+                    >
+                      <Linkedin className="h-6 w-6" />
+                    </a>
                   </div>
                 </CardContent>
               </Card>

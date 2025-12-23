@@ -1,6 +1,6 @@
 'use client';
 
-import { Leaf, Mail, Phone, MapPin } from 'lucide-react';
+import { Leaf, Mail, Phone, MapPin, Instagram, Twitter, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,6 +27,36 @@ export default function Footer() {
               Pioneering sustainability in Uganda through clean energy,
               regenerative agriculture, and circular innovation.
             </p>
+            {/* Social Media Links */}
+            <div className="flex items-center space-x-4 pt-2">
+              <a
+                href="https://www.instagram.com/greenfuture372/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-emerald-600 transition-colors"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com/BGreenfuture"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-emerald-600 transition-colors"
+                aria-label="Follow us on Twitter/X"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bizen-greenfuture-9a917a395?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-emerald-600 transition-colors"
+                aria-label="Connect with us on LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div>
