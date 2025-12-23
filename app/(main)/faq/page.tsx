@@ -36,7 +36,7 @@ export default function FAQPage() {
           id: 'supertech-3',
           question: 'What kind of fuel savings can I expect?',
           answer:
-            'Studies consistently show fuel savings of 8-12% on average. Results vary based on driving patterns, vehicle condition, and fuel quality. Commercial fleets often see higher savings. Most customers achieve payback within 3-6 months.',
+            'Studies consistently show fuel savings of 8-12% on average. Results vary based on driving patterns, vehicle condition, and fuel quality. Commercial fleets often see higher savings. Most customers achieve payback within 10 days to 3 months.',
         },
         {
           id: 'supertech-4',

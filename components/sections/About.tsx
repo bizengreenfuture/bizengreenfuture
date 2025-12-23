@@ -65,16 +65,6 @@ export default function About() {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section header */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/30 backdrop-blur-md border border-emerald-400/50 text-emerald-100 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
-            <span>Who We Are</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-            Our Mission & Vision
-          </h2>
-        </div>
-
         {/* Company Description - Only show on About page */}
         {showCompanyDescription && (
           <div className="max-w-4xl mx-auto mb-16">
@@ -99,6 +89,13 @@ export default function About() {
             </div>
           </div>
         )}
+
+        {/* Section header */}
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+            Our Mission & Vision
+          </h2>
+        </div>
 
         {/* Mission & Vision Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">

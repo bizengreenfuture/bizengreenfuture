@@ -76,9 +76,9 @@ const certificates: Certificate[] = [
   },
   {
     id: 8,
-    name: 'Brazilian Patent Application',
+    name: 'Ministry of Works & Transport',
     file: '/certificates/brazilian-patent.png',
-    description: 'Brazilian National Patent Application for Supertech Technology',
+    description: 'Ministry of Works and Transport approval and meeting invitation for Supertech Technology',
     type: 'image',
   },
   {
@@ -86,13 +86,6 @@ const certificates: Certificate[] = [
     name: 'Uganda Energy Ministry Approval',
     file: '/certificates/uganda-energy-approval.png',
     description: 'Ministry of Energy and Mineral Development approval for Supertech Device use in PMS and AGO fuels',
-    type: 'image',
-  },
-  {
-    id: 10,
-    name: 'Uganda Works & Transport Ministry Approval',
-    file: '/certificates/uganda-works-approval.png',
-    description: 'Ministry of Works and Transport approval and meeting invitation for Supertech Technology',
     type: 'image',
   },
 ];

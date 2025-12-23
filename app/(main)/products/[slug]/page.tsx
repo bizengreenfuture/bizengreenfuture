@@ -370,33 +370,7 @@ export default function ProductDetailPage() {
                 </Card>
               </div>
 
-              {/* Uganda Ministry of Works Approval */}
-              <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden cursor-pointer">
-                  <CardContent className="p-4">
-                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-900 mb-3">
-                        <Image
-                          src="/certificates/uganda-works-approval.png"
-                        alt="Uganda Ministry of Works & Transport Approval"
-                        fill
-                        className="object-contain hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          if (target.parentElement) {
-                            target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400"><FileText class="h-12 w-12" /></div>';
-                          }
-                        }}
-                      />
-                    </div>
-                    <h4 className="text-sm font-semibold text-white mb-1">Uganda Approval</h4>
-                    <p className="text-xs text-gray-400">Ministry of Works & Transport</p>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Brazilian Patent */}
+              {/* Ministry of Works & Transport */}
               <div className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                 <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden cursor-pointer">
@@ -404,7 +378,7 @@ export default function ProductDetailPage() {
                     <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-900 mb-3">
                         <Image
                           src="/certificates/brazilian-patent.png"
-                        alt="Brazilian Patent Application"
+                        alt="Ministry of Works & Transport Approval"
                         fill
                         className="object-contain hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
@@ -416,30 +390,12 @@ export default function ProductDetailPage() {
                         }}
                       />
                     </div>
-                    <h4 className="text-sm font-semibold text-white mb-1">Brazilian Patent</h4>
-                    <p className="text-xs text-gray-400">INPI National Application</p>
+                    <h4 className="text-sm font-semibold text-white mb-1">Ministry of Works & Transport</h4>
+                    <p className="text-xs text-gray-400">Uganda Approval</p>
                   </CardContent>
                 </Card>
               </div>
 
-              {/* CE Mark */}
-              <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                <Card className="relative bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-600/30 hover:border-emerald-600 transition-all duration-300 overflow-hidden cursor-pointer">
-                  <CardContent className="p-4">
-                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 mb-3 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-6xl font-bold text-gray-900 mb-2">CE</div>
-                        <p className="text-xs text-gray-600">European Conformity</p>
-                        <p className="text-xs text-gray-500 mt-2">CE 93/116</p>
-                        <p className="text-xs text-gray-500">SAE J1321</p>
-                      </div>
-                    </div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-1">CE Certification</h4>
-                    <p className="text-xs text-gray-600">European Conformity Mark</p>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           </div>
         )}
